@@ -5,3 +5,8 @@
 .nav-button {
     @apply bg-gray-600 p-2 m-2 rounded w-24 text-center;
 }
+
+.control-button {
+    @apply bg-gray-600 p-2 m-2 rounded w-24 text-center text-2xl;
+}
+

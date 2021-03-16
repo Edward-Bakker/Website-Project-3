@@ -473,6 +473,10 @@ img {
   line-height: 2.5rem;
 }
 
+.m-2 {
+  margin: 0.5rem;
+}
+
 .m-4 {
   margin: 1rem;
 }
@@ -637,3 +641,16 @@ img {
   text-align: center;
   width: 6rem;
 }
+
+.control-button {
+  --tw-bg-opacity: 1;
+  background-color: rgba(75, 85, 99, var(--tw-bg-opacity));
+  border-radius: 0.25rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  text-align: center;
+  width: 6rem;
+}
+
