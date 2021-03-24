@@ -217,6 +217,7 @@ Add the correct display in Chrome and Safari.
 
 h1,
 h2,
+h3,
 p {
   margin: 0;
 }
@@ -325,7 +326,8 @@ table {
 }
 
 h1,
-h2 {
+h2,
+h3 {
   font-size: inherit;
   font-weight: inherit;
 }
@@ -460,6 +462,11 @@ img {
 
 .font-bold {
   font-weight: 700;
+}
+
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 .text-lg {
