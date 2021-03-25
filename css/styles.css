@@ -420,8 +420,21 @@ img {
   background-color: rgba(4, 120, 87, var(--tw-bg-opacity));
 }
 
+.border-gray-600 {
+  --tw-border-opacity: 1;
+  border-color: rgba(75, 85, 99, var(--tw-border-opacity));
+}
+
 .rounded {
   border-radius: 0.25rem;
+}
+
+.border-solid {
+  border-style: solid;
+}
+
+.border-8 {
+  border-width: 8px;
 }
 
 .flex {
@@ -479,9 +492,18 @@ img {
   line-height: 1.75rem;
 }
 
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
 .text-4xl {
   font-size: 2.25rem;
   line-height: 2.5rem;
+}
+
+.m-2 {
+  margin: 0.5rem;
 }
 
 .m-4 {
@@ -508,6 +530,10 @@ img {
 
 .mb-4 {
   margin-bottom: 1rem;
+}
+
+.max-w-xs {
+  max-width: 20rem;
 }
 
 .min-h-full {
