@@ -18,6 +18,22 @@
     </nav>
     <div class="flex justify-center p-2 m-5">
         <div class="bg-gray-600 rounded">
+            <?php
+            $Username = "user";
+            $Password = "user_12";
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL,"http://foscam.serverict.nl/videostream.cgi");
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); 
+            curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);//10 seconds
+            curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY);//kept trying options till it worked
+            curl_setopt($ch, CURLOPT_USERPWD, "$Username:$Password");      
+            $result = curl_exec($ch);        
+            //$resultStatus = curl_getinfo($ch); 
+            //print 'ResultStatus:'.print_r($resultStatus) . "<br>"; 
+            curl_close($ch);  
+            echo($result);
+            ?>
            <iframe src="http://foscam.serverict.nl/videostream.cgi" title="Robolympics" width="640" height="480"></iframe>
         </div>
         <div class="bg-gray-300 rounded">
