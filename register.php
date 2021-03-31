@@ -24,6 +24,8 @@ session_start();
     </nav>
     <div class="flex justify-center">
         <form class="flex flex-col bg-gray-600 p-2 rounded m-5" action="register.php" method="POST">
+            <input class="mb-2 p-1 rounded" name="name" placeholder="Name">
+            <input class="mb-2 p-1 rounded" name="team_name" placeholder="Team Name">
             <input class="mb-2 p-1 rounded" type="email" name="email" placeholder="Email">
             <input class="mb-2 p-1 rounded" type="password" name="password" placeholder="Password">
             <input class="mb-2 p-1 rounded" type="password" name="verifyPassword" placeholder="Password">
@@ -35,15 +37,17 @@ session_start();
 
     // Processing form data when form is submitted
     if (isset($_POST['submit'])) {
+        $name= filter_var($_POST['name'], FILTER_SANITIZE_SPECIAL_CHARS);
         $username = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
         $password = filter_var($_POST['password'], FILTER_SANITIZE_SPECIAL_CHARS);
         $verifyPassword = filter_var($_POST['verifyPassword'], FILTER_SANITIZE_SPECIAL_CHARS);
-        if (!empty(trim($username)) && !empty(trim($password)) && !empty(trim($verifyPassword))) {
+        $team_name = filter_var($_POST['team_name'], FILTER_SANITIZE_SPECIAL_CHARS);
+        if (!empty(trim($username)) && !empty(trim($password)) && !empty(trim($verifyPassword)) && !empty(trim($name)) && !empty(trim($team_name)) ) {
             if ($password == $verifyPassword) {
                 $server = "localhost";
                 $user = "root";
                 $dbpass = "";
-                $dbname = "robot";
+                $dbname = "robolympics";
 
                 /* Attempt to connect to MySQL database */
                 $link = mysqli_connect($server, $user, $dbpass, $dbname);
@@ -53,7 +57,7 @@ session_start();
                     die("ERROR: Could not connect. " . mysqli_connect_error());
                 }
 
-                $sql = "SELECT email FROM user WHERE email='$username'";
+                $sql = "SELECT username FROM users WHERE username='$username'";
                 if ($stmt = mysqli_prepare($link, $sql)) {
                     if (mysqli_stmt_execute($stmt)) {
                         mysqli_stmt_store_result($stmt);
@@ -61,16 +65,18 @@ session_start();
                             echo "Email is already taken!";
                         } else {
 
-                            $create = "INSERT INTO user (email, password, role) VALUES (?, ?, 'user')";
+                            $create = "INSERT INTO users (name, username, password, team_name, admin, banned ) VALUES (?, ?, ?, ?, 0, 0)";
 
                             if ($stmtCreate = mysqli_prepare($link, $create)) {
 
                                 // Set parameters
+                                $param_name = $name;
                                 $param_username = $username;
                                 $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
-
+                                $param_team_name = $team_name;
+                                
                                 // Bind variables to the prepared statement as parameters
-                                mysqli_stmt_bind_param($stmtCreate, "ss", $param_username, $param_password);
+                                mysqli_stmt_bind_param($stmtCreate, "ssss", $param_name, $param_username, $param_password, $param_team_name);
 
                                 // Attempt to execute the prepared statement
                                 if (mysqli_stmt_execute($stmtCreate)) {
@@ -78,6 +84,7 @@ session_start();
                                     mysqli_stmt_close($stmtCreate);
                                     mysqli_stmt_close($stmt);
                                 } else {
+                                    echo mysqli_stmt_error($stmtCreate);
                                     echo "Oops! Something went wrong. Please try again later.";
                                 }
                             }
