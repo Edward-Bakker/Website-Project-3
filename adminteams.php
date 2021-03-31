@@ -1,6 +1,6 @@
 <?php
 $conn= mysqli_connect("localhost","root","");
-mysqli_select_db($conn,"battlebot");
+mysqli_select_db($conn,"robolympics");
 ?>
 
 <!doctype html>
@@ -15,7 +15,7 @@ mysqli_select_db($conn,"battlebot");
 <body class="min-h-full bg-gray-800 text-white">
     <h1 class="text-center text-4xl m-5">Project Battlebot</h1>
     <nav class="flex justify-center flex-wrap">
-        <a href="index.html" class="nav-button">Livestream</a>
+        <a href="index.php" class="nav-button">Livestream</a>
         <a href="bots.html" class="nav-button">Battlebots</a>
         <a href="games.html" class="nav-button">Games</a>
         <a href="login.php" class="nav-button">Login</a>
@@ -35,9 +35,9 @@ mysqli_select_db($conn,"battlebot");
             <div class="flex justify-left">
                 <h3 class="font-medium text-base self-center truncate">Current score:
  				<?php
-				$result= mysqli_query($conn, "SELECT * FROM bots WHERE team='A'");
+				$result= mysqli_query($conn, "SELECT * FROM robots WHERE team='A'");
 				while ($row = mysqli_fetch_array($result)) {
-					$score= $row['current_score'];
+					$score= $row['game1_score'] + $row['game2_score'] + $row['game3_score'];
 					echo $score;
 				}					
 				?>
@@ -46,7 +46,7 @@ mysqli_select_db($conn,"battlebot");
             <div class="flex w-full justify-left">
                 <h3 class="font-medium text-base self-center truncate">Bot Name:
 				<?php
-				$result= mysqli_query($conn, "SELECT * FROM bots WHERE team='A'");
+				$result= mysqli_query($conn, "SELECT * FROM robots WHERE team='A'");
 				while ($row = mysqli_fetch_array($result)) {
 					$name = $row['bot_name'];
 					echo $name;
@@ -77,9 +77,9 @@ mysqli_select_db($conn,"battlebot");
             <div class="flex justify-left">
                 <h3 class="font-medium text-base self-center truncate">Current score:
  				<?php
-				$result= mysqli_query($conn, "SELECT * FROM bots WHERE team='B'");
+				$result= mysqli_query($conn, "SELECT * FROM robots WHERE team='B'");
 				while ($row = mysqli_fetch_array($result)) {
-					$score= $row['current_score'];
+					$score= $row['game1_score'] + $row['game2_score'] + $row['game3_score'];
 					echo $score;
 				}					
 				?>
@@ -88,7 +88,7 @@ mysqli_select_db($conn,"battlebot");
             <div class="flex w-full justify-left">
                 <h3 class="font-medium text-base self-center truncate">Bot Name:
 				<?php
-				$result= mysqli_query($conn, "SELECT * FROM bots WHERE team='B'");
+				$result= mysqli_query($conn, "SELECT * FROM robots WHERE team='B'");
 				while ($row = mysqli_fetch_array($result)) {
 					$name = $row['bot_name'];
 					echo $name;
@@ -119,9 +119,9 @@ mysqli_select_db($conn,"battlebot");
             <div class="flex justify-left">
                 <h3 class="font-medium text-base self-center truncate">Current score:
  				<?php
-				$result= mysqli_query($conn, "SELECT * FROM bots WHERE team='C'");
+				$result= mysqli_query($conn, "SELECT * FROM robots WHERE team='C'");
 				while ($row = mysqli_fetch_array($result)) {
-					$score= $row['current_score'];
+					$score= $row['game1_score'] + $row['game2_score'] + $row['game3_score'];
 					echo $score;
 				}					
 				?>
@@ -130,7 +130,7 @@ mysqli_select_db($conn,"battlebot");
             <div class="flex w-full justify-left">
                 <h3 class="font-medium text-base self-center truncate">Bot Name:
 				<?php
-				$result= mysqli_query($conn, "SELECT * FROM bots WHERE team='C'");
+				$result= mysqli_query($conn, "SELECT * FROM robots WHERE team='C'");
 				while ($row = mysqli_fetch_array($result)) {
 					$name = $row['bot_name'];
 					echo $name;
@@ -161,9 +161,9 @@ mysqli_select_db($conn,"battlebot");
             <div class="flex justify-left">
                 <h3 class="font-medium text-base self-center truncate">Current score:
  				<?php
-				$result= mysqli_query($conn, "SELECT * FROM bots WHERE team='D'");
+				$result= mysqli_query($conn, "SELECT * FROM robots WHERE team='D'");
 				while ($row = mysqli_fetch_array($result)) {
-					$score= $row['current_score'];
+					$score= $row['game1_score'] + $row['game2_score'] + $row['game3_score'];
 					echo $score;
 				}					
 				?>
@@ -172,7 +172,7 @@ mysqli_select_db($conn,"battlebot");
             <div class="flex w-full justify-left">
                 <h3 class="font-medium text-base self-center truncate">Bot Name:
 				<?php
-				$result= mysqli_query($conn, "SELECT * FROM bots WHERE team='D'");
+				$result= mysqli_query($conn, "SELECT * FROM robots WHERE team='D'");
 				while ($row = mysqli_fetch_array($result)) {
 					$name = $row['bot_name'];
 					echo $name;
@@ -203,9 +203,9 @@ mysqli_select_db($conn,"battlebot");
             <div class="flex justify-left">
                 <h3 class="font-medium text-base self-center truncate">Current score:
  				<?php
-				$result= mysqli_query($conn, "SELECT * FROM bots WHERE team='E'");
+				$result= mysqli_query($conn, "SELECT * FROM robots WHERE team='E'");
 				while ($row = mysqli_fetch_array($result)) {
-					$score= $row['current_score'];
+					$score= $row['game1_score'] + $row['game2_score'] + $row['game3_score'];
 					echo $score;
 				}					
 				?>
@@ -214,7 +214,7 @@ mysqli_select_db($conn,"battlebot");
             <div class="flex w-full justify-left">
                 <h3 class="font-medium text-base self-center truncate">Bot Name:
 				<?php
-				$result= mysqli_query($conn, "SELECT * FROM bots WHERE team='E'");
+				$result= mysqli_query($conn, "SELECT * FROM robots WHERE team='E'");
 				while ($row = mysqli_fetch_array($result)) {
 					$name = $row['bot_name'];
 					echo $name;

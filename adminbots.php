@@ -1,6 +1,6 @@
 <?php
 $conn= mysqli_connect("localhost","root","");
-mysqli_select_db($conn,"battlebot");
+mysqli_select_db($conn,"robolympics");
 ?>
 
 <!doctype html>
@@ -15,7 +15,7 @@ mysqli_select_db($conn,"battlebot");
 <body class="min-h-full bg-gray-800 text-white">
     <h1 class="text-center text-4xl m-5">Project Battlebot</h1>
     <nav class="flex justify-center flex-wrap">
-        <a href="index.html" class="nav-button">Livestream</a>
+        <a href="index.php" class="nav-button">Livestream</a>
         <a href="bots.html" class="nav-button">Battlebots</a>
         <a href="games.html" class="nav-button">Games</a>
         <a href="login.php" class="nav-button">Login</a>
@@ -35,7 +35,7 @@ mysqli_select_db($conn,"battlebot");
             <div class="flex w-full justify-left">
                 <h3 class="font-medium text-base self-center truncate">Bot Name: 						
 				<?php
-					$result= mysqli_query($conn, "SELECT * FROM bots WHERE team='A'");
+					$result= mysqli_query($conn, "SELECT * FROM robots WHERE team='A'");
 					while ($row = mysqli_fetch_array($result)) {
 						$name = $row['bot_name'];
 						echo $name;
@@ -49,7 +49,7 @@ mysqli_select_db($conn,"battlebot");
 				if(isset($_POST['submitBotA'])) 
 					{
 						$newNameA=$_POST['newNameA'];
-						$sql = "UPDATE bots SET bot_name='$newNameA' WHERE team='A'";
+						$sql = "UPDATE robots SET bot_name='$newNameA' WHERE team='A'";
 
 						$stmt= mysqli_prepare($conn, $sql)
 						OR DIE(mysqli_error($conn));
@@ -78,7 +78,7 @@ mysqli_select_db($conn,"battlebot");
             <div class="flex w-full justify-left">
                 <h3 class="font-medium text-base self-center truncate">Bot Name: 
 				<?php
-					$result= mysqli_query($conn, "SELECT * FROM bots WHERE team='B'");
+					$result= mysqli_query($conn, "SELECT * FROM robots WHERE team='B'");
 					while ($row = mysqli_fetch_array($result)) {
 						$name = $row['bot_name'];
 						echo $name;
@@ -87,12 +87,12 @@ mysqli_select_db($conn,"battlebot");
 				</h3>
             </div>
 			<div class="flex w-full justify-left">
-				<h3>Edit bot name 
+				<h3>Edit bot name
 				<?php
 				if(isset($_POST['submitBotB'])) 
 					{
 						$newNameB=$_POST['newNameB'];
-						$sql = "UPDATE bots SET bot_name='$newNameB' WHERE team='B'";
+						$sql = "UPDATE robots SET bot_name='$newNameB' WHERE team='B'";
 
 						$stmt= mysqli_prepare($conn, $sql)
 						OR DIE(mysqli_error($conn));
@@ -121,7 +121,7 @@ mysqli_select_db($conn,"battlebot");
             <div class="flex w-full justify-left">
                 <h3 class="font-medium text-base self-center truncate">Bot Name: 
 				<?php
-					$result= mysqli_query($conn, "SELECT * FROM bots WHERE team='C'");
+					$result= mysqli_query($conn, "SELECT * FROM robots WHERE team='C'");
 					while ($row = mysqli_fetch_array($result)) {
 						$name = $row['bot_name'];
 						echo $name;						
@@ -135,7 +135,7 @@ mysqli_select_db($conn,"battlebot");
 				if(isset($_POST['submitBotC'])) 
 					{
 						$newNameC=$_POST['newNameC'];
-						$sql = "UPDATE bots SET bot_name='$newNameC' WHERE team='C'";
+						$sql = "UPDATE robots SET bot_name='$newNameC' WHERE team='C'";
 
 						$stmt= mysqli_prepare($conn, $sql)
 						OR DIE(mysqli_error($conn));
@@ -164,7 +164,7 @@ mysqli_select_db($conn,"battlebot");
             <div class="flex w-full justify-left">
                 <h3 class="font-medium text-base self-center truncate">Bot Name: 
 				<?php
-					$result= mysqli_query($conn, "SELECT * FROM bots WHERE team='D'");
+					$result= mysqli_query($conn, "SELECT * FROM robots WHERE team='D'");
 					while ($row = mysqli_fetch_array($result)) {
 						$name = $row['bot_name'];
 						echo $name;
@@ -178,7 +178,7 @@ mysqli_select_db($conn,"battlebot");
 				if(isset($_POST['submitBotD'])) 
 					{
 						$newNameD=$_POST['newNameD'];
-						$sql = "UPDATE bots SET bot_name='$newNameD' WHERE team='D'";
+						$sql = "UPDATE robots SET bot_name='$newNameD' WHERE team='D'";
 
 						$stmt= mysqli_prepare($conn, $sql)
 						OR DIE(mysqli_error($conn));
@@ -207,7 +207,7 @@ mysqli_select_db($conn,"battlebot");
             <div class="flex w-full justify-left">
                 <h3 class="font-medium text-base self-center truncate">Bot Name: 
 				<?php
-					$result= mysqli_query($conn, "SELECT * FROM bots WHERE team='E'");
+					$result= mysqli_query($conn, "SELECT * FROM robots WHERE team='E'");
 					while ($row = mysqli_fetch_array($result)) {
 						$name = $row['bot_name'];
 						echo $name;
@@ -221,7 +221,7 @@ mysqli_select_db($conn,"battlebot");
 				if(isset($_POST['submitBotE'])) 
 					{
 						$newNameE=$_POST['newNameE'];
-						$sql = "UPDATE bots SET bot_name='$newNameE' WHERE team='E'";
+						$sql = "UPDATE robots SET bot_name='$newNameE' WHERE team='E'";
 
 						$stmt= mysqli_prepare($conn, $sql)
 						OR DIE(mysqli_error($conn));

@@ -30,10 +30,97 @@ SET time_zone = "+00:00";
 CREATE TABLE `robots` (
   `robot_id` int(11) NOT NULL,
   `team` varchar(45) NOT NULL,
-  `current_score` double NOT NULL,
+  `bot_name` varchar(45) NOT NULL,  
+  `game1_score` int(11),
+  `game2_score` int(11),
+  `game3_score` int(11),
   `last_update` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `insert_time` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Dumping data for table `bots`
+--
+
+INSERT INTO `robots` (`robot_id`, `team`, `bot_name`, `game1_score`, `game2_score`, `game3_score`) VALUES
+(1, 'A', 'Bot 1', 0, 0, 0),
+(2, 'B', 'Bot 2', 0, 0, 0),
+(3, 'C', 'Bot 3', 0, 0, 0),
+(4, 'D', 'Bot 4', 0, 0, 0),
+(5, 'E', 'Bot 5', 0, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `games`
+--
+
+CREATE TABLE `games` (
+  `game_id` int(11) NOT NULL,
+  `game_name` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Dumping data for table `games`
+--
+INSERT INTO `games` (`game_id`, `game_name`) VALUES
+(1, 'Game1'),
+(2, 'Game2'),
+(3, 'Game3');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `members`
+--
+
+-- --------------------------------------------------------
+
+CREATE TABLE `members` (
+  `team` varchar(30) NOT NULL,
+  `member` varchar(90) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Dumping data for table `members`
+--
+
+INSERT INTO `members` (`team`, `member`) VALUES
+('A', 'Sam Klop'),
+('A', 'Oghale Oziwo'),
+('A', 'Robert Rachita'),
+('A', 'Aggrey Odera Okero'),
+('A', 'Samuel Fremont'),
+('A', 'Timo Hennig'),
+('B', 'Atanas Hristov'),
+('B', 'Oleksandr Sikora'),
+('B', 'Michael Procee'),
+('B', 'Christopher Sulistiyo'),
+('B', 'Máté Soós'),
+('B', 'Roy Stobbe'),
+('C', 'Vasil Ivanov'),
+('C', 'Josta Holsappel'),
+('C', 'Keanu Sint Jago'),
+('C', 'Sean Rapanganwa'),
+('C', 'Stefan Untura'),
+('D', 'Lyuboslav Lesichkov'),
+('D', 'Line Amini Kaveh'),
+('D', 'Alex Constantinescu'),
+('D', 'Tadas Simanauskas'),
+('D', 'Michael Ikpi'),
+('D', 'Victor Tromp'),
+('E', 'Matteo La Barbera'),
+('E', 'Levente Stieber'),
+('E', 'Thomas Kounikorgo'),
+('E', 'Harmen Drenth'),
+('E', 'Alex van der Kroft'),
+('E', 'Anthony Roessler');
 
 -- --------------------------------------------------------
 
