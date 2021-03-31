@@ -26,7 +26,7 @@ session_start();
         <form class="flex flex-col bg-gray-600 p-2 rounded m-5" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
             <input class="mb-2 p-1 rounded" type="email" name="email" placeholder="Email">
             <input class="mb-2 p-1 rounded" type="password" name="password" placeholder="Password">
-            <input class="bg-gray-800 p-2 rounded" type="submit" value="Login">
+            <input class="bg-gray-800 p-2 rounded" type="submit" name="submit"  value="Login">
         </form>
     </div>
 </body>
@@ -40,8 +40,18 @@ if (isset($_POST['submit'])) {
     $username = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
     $password = filter_var($_POST['password'], FILTER_SANITIZE_SPECIAL_CHARS);
     if (!empty(trim($username)) && !empty(trim($password))) {
-        // Include config file
-        require_once "config.php";
+        $server = "localhost";
+                $user = "root";
+                $dbpass = "";
+                $dbname = "robot";
+
+                /* Attempt to connect to MySQL database */
+                $link = mysqli_connect($server, $user, $dbpass, $dbname);
+
+                // Check connection
+                if ($link === false) {
+                    die("ERROR: Could not connect. " . mysqli_connect_error());
+                }
         $sql = "SELECT password, ID, role FROM user WHERE email='$username'";
         if ($stmt = mysqli_prepare($link, $sql)) {
             if (!(mysqli_stmt_execute($stmt))) {
