@@ -15,15 +15,11 @@ session_start();
 
 <body class="min-h-full bg-gray-800 text-white">
     <h1 class="text-center text-4xl m-5">Project Battlebot</h1>
-    <nav class="flex justify-center flex-wrap">
-        <a href="index.html" class="nav-button">Livestream</a>
-        <a href="bots.html" class="nav-button">Battlebots</a>
-        <a href="games.html" class="nav-button">Games</a>
-        <a href="login.php" class="nav-button">Login</a>
-        <a href="admin.html" class="nav-button">Admin</a>
-    </nav>
+    <?php
+        require_once('navbar.php');
+    ?>
     <div class="flex justify-center">
-        <form class="flex flex-col bg-gray-600 p-2 rounded m-5" action="register.php" method="POST">
+        <form class="flex flex-col bg-gray-600 p-2 rounded m-5" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
             <input class="mb-2 p-1 rounded" name="name" placeholder="Name">
             <input class="mb-2 p-1 rounded" name="team_name" placeholder="Team Name">
             <input class="mb-2 p-1 rounded" type="email" name="email" placeholder="Email">
@@ -80,9 +76,10 @@ session_start();
 
                                 // Attempt to execute the prepared statement
                                 if (mysqli_stmt_execute($stmtCreate)) {
-                                    echo 'Created';
+                                    
                                     mysqli_stmt_close($stmtCreate);
                                     mysqli_stmt_close($stmt);
+                                    header('location: login.php');
                                 } else {
                                     echo mysqli_stmt_error($stmtCreate);
                                     echo "Oops! Something went wrong. Please try again later.";

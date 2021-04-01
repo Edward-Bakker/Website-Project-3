@@ -141,8 +141,8 @@ CREATE TABLE `teams` (
 CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
   `name` varchar(45) NOT NULL,
-  `username` varchar(45) NOT NULL,
-  `password` varchar(45) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
   `admin` tinyint(1) NOT NULL,
   `banned` tinyint(1) NOT NULL,
   `team_name` varchar(45) NOT NULL

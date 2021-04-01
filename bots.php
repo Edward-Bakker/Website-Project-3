@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="en">
 
@@ -8,19 +11,14 @@
 </head>
 
 <body class="min-h-full bg-gray-800 text-white">
-    <h1 class="text-center text-4xl m-5">Project Battlebot</h1>
-    <nav class="flex justify-center flex-wrap">
-        <a href="index.php" class="nav-button">Livestream</a>
-        <a href="bots.html" class="nav-button">Battlebots</a>
-        <a href="games.html" class="nav-button">Games</a>
-        <a href="login.php" class="nav-button">Login</a>
-        <a href="admin.html" class="nav-button">Admin</a>
-    </nav>
+    <?php
+    require_once('navbar.php');
+    ?>
     <div class="flex justify-center flex-wrap">
         <div class="flex-col w-96 m-5 p-4 bg-gray-600 rounded">
             <div class="flex w-full justify-between mb-4">
                 <h2 class="font-medium text-lg self-center truncate">Bot 1</h2>
-                <a href="control.html" class="bg-green-500 hover:bg-green-700 rounded p-2">View</a>
+                <a href="control.php" class="bg-green-500 hover:bg-green-700 rounded p-2">View</a>
             </div>
             <div class="flex-col w-full">
                 <div class="flex justify-between my-1">
@@ -36,7 +34,7 @@
         <div class="flex-col w-96 m-5 p-4 bg-gray-600 rounded">
             <div class="flex w-full justify-between mb-4">
                 <h2 class="font-medium text-lg self-center truncate">Bot 2</h2>
-                <a href="control.html" class="bg-green-500 hover:bg-green-700 rounded p-2">View</a>
+                <a href="control.php" class="bg-green-500 hover:bg-green-700 rounded p-2">View</a>
             </div>
             <div class="flex-col w-full">
                 <div class="flex justify-between my-1">
@@ -52,7 +50,7 @@
         <div class="flex-col w-96 m-5 p-4 bg-gray-600 rounded">
             <div class="flex w-full justify-between mb-4">
                 <h2 class="font-medium text-lg self-center truncate">Bot 3</h2>
-                <a href="control.html" class="bg-green-500 hover:bg-green-700 rounded p-2">View</a>
+                <a href="control.php" class="bg-green-500 hover:bg-green-700 rounded p-2">View</a>
             </div>
             <div class="flex-col w-full">
                 <div class="flex justify-between my-1">
@@ -68,7 +66,7 @@
         <div class="flex-col w-96 m-5 p-4 bg-gray-600 rounded">
             <div class="flex w-full justify-between mb-4">
                 <h2 class="font-medium text-lg self-center truncate">Bot 4</h2>
-                <a href="#" class="bg-green-500 hover:bg-green-700 rounded p-2">View</a>
+                <a href="control.php" class="bg-green-500 hover:bg-green-700 rounded p-2">View</a>
             </div>
             <div class="flex-col w-full">
                 <div class="flex justify-between my-1">
@@ -84,7 +82,7 @@
         <div class="flex-col w-96 m-5 p-4 bg-gray-600 rounded">
             <div class="flex w-full justify-between mb-4">
                 <h2 class="font-medium text-lg self-center truncate">Bot 5</h2>
-                <a href="control.html" class="bg-green-500 hover:bg-green-700 rounded p-2">View</a>
+                <a href="control.php" class="bg-green-500 hover:bg-green-700 rounded p-2">View</a>
             </div>
             <div class="flex-col w-full">
                 <div class="flex justify-between my-1">

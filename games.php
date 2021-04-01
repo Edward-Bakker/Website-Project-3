@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="en">
 
@@ -8,14 +11,9 @@
 </head>
 
 <body class="min-h-full bg-gray-800 text-white">
-    <h1 class="text-center text-4xl m-5">Project Battlebot</h1>
-    <nav class="flex justify-center flex-wrap">
-        <a href="index.php" class="nav-button">Livestream</a>
-        <a href="bots.html" class="nav-button">Battlebots</a>
-        <a href="games.html" class="nav-button">Games</a>
-        <a href="login.php" class="nav-button">Login</a>
-        <a href="admin.html" class="nav-button">Admin</a>
-    </nav>
+    <?php
+    require_once('navbar.php');
+    ?>
     <div class="flex justify-center flex-wrap">
         <div class="text-center m-4 p-4 bg-gray-600 w-max rounded">
             <h1 class="text-4xl font-bold">Game 1</h1>
