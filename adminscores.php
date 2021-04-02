@@ -23,6 +23,7 @@ $conn = mysqli_connect($config['host'], $config['user'], $config['password'], $c
         <a href="adminteams.php" class="nav-button">Teams</a>
         <a href="adminscores.php" class="nav-button">Scores</a>
         <a href="adminbots.php" class="nav-button">Battlebots</a>
+        <a href="adminallusers.php" class="nav-button">All Users</a>
     </div>
     <div class="flex justify-center flex-wrap">
         <div class="text-center m-4 p-4 bg-gray-600 w-max rounded">

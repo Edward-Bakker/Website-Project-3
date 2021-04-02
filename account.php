@@ -30,6 +30,7 @@ session_start();
                     $user = "root";
                     $dbpass = "";
                     $dbname = "robolympics";
+                    
 
                     /* Attempt to connect to MySQL database */
                     $link = mysqli_connect($server, $user, $dbpass, $dbname);

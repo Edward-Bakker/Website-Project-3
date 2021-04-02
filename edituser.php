@@ -1,6 +1,12 @@
 <?php
+// Initialize the session
 session_start();
+
+$config = require_once('config.php');
+$conn = mysqli_connect($config['host'], $config['user'], $config['password'], $config['name']);
+$userid = filter_input(INPUT_GET, "user", FILTER_SANITIZE_NUMBER_INT);
 ?>
+
 <!doctype html>
 <html lang="en">
 
@@ -20,6 +26,7 @@ session_start();
         <a href="adminbots.php" class="nav-button">Battlebots</a>
         <a href="adminallusers.php" class="nav-button">All Users</a>
     </div>
-</body>
 
-</html>
+
+        
+        
