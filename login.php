@@ -15,13 +15,13 @@ session_start();
 <body class="min-h-full bg-gray-800 text-white">
     <h1 class="text-center text-4xl m-5">Project Battlebot</h1>
     <?php
-        require_once('navbar.php');
+    require_once('navbar.php');
     ?>
     <div class="flex justify-center">
         <form class="flex flex-col bg-gray-600 p-2 rounded m-5" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
             <input class="mb-2 p-1 rounded" type="email" name="email" placeholder="Email">
             <input class="mb-2 p-1 rounded" type="password" name="password" placeholder="Password">
-            <input class="bg-gray-800 p-2 rounded" type="submit" name="submit"  value="Login">
+            <input class="bg-gray-800 p-2 rounded" type="submit" name="submit" value="Login">
         </form>
     </div>
 </body>
@@ -33,20 +33,15 @@ session_start();
 // Processing form data when form is submitted
 if (isset($_POST['submit'])) {
     $username = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-    $password = filter_var($_POST['password'], FILTER_SANITIZE_SPECIAL_CHARS);
+    $password = filter_var($_POST['password']);
     if (!empty(trim($username)) && !empty(trim($password))) {
-        $server = "localhost";
-                $user = "root";
-                $dbpass = "";
-                $dbname = "robolympics";
+        $config = require_once('config.php');
+        $link = mysqli_connect($config['host'], $config['user'], $config['password'], $config['name']);
 
-                /* Attempt to connect to MySQL database */
-                $link = mysqli_connect($server, $user, $dbpass, $dbname);
-
-                // Check connection
-                if ($link === false) {
-                    die("ERROR: Could not connect. " . mysqli_connect_error());
-                }
+        // Check connection
+        if ($link === false) {
+            die("ERROR: Could not connect. " . mysqli_connect_error());
+        }
         $sql = "SELECT password, user_id, admin FROM users WHERE username='$username'";
         if ($stmt = mysqli_prepare($link, $sql)) {
             if (!(mysqli_stmt_execute($stmt))) {

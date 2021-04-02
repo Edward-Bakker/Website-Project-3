@@ -2,8 +2,8 @@
 // Initialize the session
 session_start();
 
-$conn= mysqli_connect("localhost","root","");
-mysqli_select_db($conn,"robolympics");
+$config = require_once('config.php');
+$conn = mysqli_connect($config['host'], $config['user'], $config['password'], $config['name']);
 ?>
 
 <!doctype html>
@@ -16,8 +16,8 @@ mysqli_select_db($conn,"robolympics");
 </head>
 
 <body class="min-h-full bg-gray-800 text-white">
-<?php
-        require_once('navbar.php');
+    <?php
+    require_once('navbar.php');
     ?>
     <div class="flex justify-center">
         <a href="adminteams.php" class="nav-button">Teams</a>
@@ -32,38 +32,38 @@ mysqli_select_db($conn,"robolympics");
             </div>
             <div class="flex justify-left">
                 <h3 class="font-medium text-base self-center truncate">Current score:
- 				<?php
-				$result= mysqli_query($conn, "SELECT * FROM robots WHERE team='A'");
-				while ($row = mysqli_fetch_array($result)) {
-					$score= $row['game1_score'] + $row['game2_score'] + $row['game3_score'];
-					echo $score;
-				}					
-				?>
-				</h3>
+                    <?php
+                    $result = mysqli_query($conn, "SELECT * FROM robots WHERE team='A'");
+                    while ($row = mysqli_fetch_array($result)) {
+                        $score = $row['game1_score'] + $row['game2_score'] + $row['game3_score'];
+                        echo $score;
+                    }
+                    ?>
+                </h3>
             </div>
             <div class="flex w-full justify-left">
                 <h3 class="font-medium text-base self-center truncate">Bot Name:
-				<?php
-				$result= mysqli_query($conn, "SELECT * FROM robots WHERE team='A'");
-				while ($row = mysqli_fetch_array($result)) {
-					$name = $row['bot_name'];
-					echo $name;
-				}					
-				?>
-				</h3>
+                    <?php
+                    $result = mysqli_query($conn, "SELECT * FROM robots WHERE team='A'");
+                    while ($row = mysqli_fetch_array($result)) {
+                        $name = $row['bot_name'];
+                        echo $name;
+                    }
+                    ?>
+                </h3>
             </div>
-           <table style="width: 100%">
+            <table style="width: 100%">
                 <tr>
                     <th style="text-align: center">Members</th>
                 </tr>
-				<?php
-				$result= mysqli_query($conn, "SELECT * FROM members WHERE team='A'");
-				while ($row = mysqli_fetch_array($result)) {
-					$member= $row['member'];
-					echo "<tr><td>" . $member . "</td></tr>";
-				}					
-				?>
-           </table>
+                <?php
+                $result = mysqli_query($conn, "SELECT * FROM members WHERE team='A'");
+                while ($row = mysqli_fetch_array($result)) {
+                    $member = $row['member'];
+                    echo "<tr><td>" . $member . "</td></tr>";
+                }
+                ?>
+            </table>
         </div>
     </div>
 
@@ -74,37 +74,37 @@ mysqli_select_db($conn,"robolympics");
             </div>
             <div class="flex justify-left">
                 <h3 class="font-medium text-base self-center truncate">Current score:
- 				<?php
-				$result= mysqli_query($conn, "SELECT * FROM robots WHERE team='B'");
-				while ($row = mysqli_fetch_array($result)) {
-					$score= $row['game1_score'] + $row['game2_score'] + $row['game3_score'];
-					echo $score;
-				}					
-				?>
-				</h3>
+                    <?php
+                    $result = mysqli_query($conn, "SELECT * FROM robots WHERE team='B'");
+                    while ($row = mysqli_fetch_array($result)) {
+                        $score = $row['game1_score'] + $row['game2_score'] + $row['game3_score'];
+                        echo $score;
+                    }
+                    ?>
+                </h3>
             </div>
             <div class="flex w-full justify-left">
                 <h3 class="font-medium text-base self-center truncate">Bot Name:
-				<?php
-				$result= mysqli_query($conn, "SELECT * FROM robots WHERE team='B'");
-				while ($row = mysqli_fetch_array($result)) {
-					$name = $row['bot_name'];
-					echo $name;
-				}					
-				?>
-				</h3>
+                    <?php
+                    $result = mysqli_query($conn, "SELECT * FROM robots WHERE team='B'");
+                    while ($row = mysqli_fetch_array($result)) {
+                        $name = $row['bot_name'];
+                        echo $name;
+                    }
+                    ?>
+                </h3>
             </div>
             <table style="width: 100%">
                 <tr>
                     <th style="text-align: center">Members</th>
                 </tr>
-				<?php
-				$result= mysqli_query($conn, "SELECT * FROM members WHERE team='B'");
-				while ($row = mysqli_fetch_array($result)) {
-					$member= $row['member'];
-					echo "<tr><td>" . $member . "</td></tr>";
-				}					
-				?>
+                <?php
+                $result = mysqli_query($conn, "SELECT * FROM members WHERE team='B'");
+                while ($row = mysqli_fetch_array($result)) {
+                    $member = $row['member'];
+                    echo "<tr><td>" . $member . "</td></tr>";
+                }
+                ?>
             </table>
         </div>
     </div>
@@ -116,37 +116,37 @@ mysqli_select_db($conn,"robolympics");
             </div>
             <div class="flex justify-left">
                 <h3 class="font-medium text-base self-center truncate">Current score:
- 				<?php
-				$result= mysqli_query($conn, "SELECT * FROM robots WHERE team='C'");
-				while ($row = mysqli_fetch_array($result)) {
-					$score= $row['game1_score'] + $row['game2_score'] + $row['game3_score'];
-					echo $score;
-				}					
-				?>
-				</h3>
+                    <?php
+                    $result = mysqli_query($conn, "SELECT * FROM robots WHERE team='C'");
+                    while ($row = mysqli_fetch_array($result)) {
+                        $score = $row['game1_score'] + $row['game2_score'] + $row['game3_score'];
+                        echo $score;
+                    }
+                    ?>
+                </h3>
             </div>
             <div class="flex w-full justify-left">
                 <h3 class="font-medium text-base self-center truncate">Bot Name:
-				<?php
-				$result= mysqli_query($conn, "SELECT * FROM robots WHERE team='C'");
-				while ($row = mysqli_fetch_array($result)) {
-					$name = $row['bot_name'];
-					echo $name;
-				}					
-				?>
-				</h3>
+                    <?php
+                    $result = mysqli_query($conn, "SELECT * FROM robots WHERE team='C'");
+                    while ($row = mysqli_fetch_array($result)) {
+                        $name = $row['bot_name'];
+                        echo $name;
+                    }
+                    ?>
+                </h3>
             </div>
             <table style="width: 100%">
                 <tr>
                     <th style="text-align: center">Members</th>
                 </tr>
-				<?php
-				$result= mysqli_query($conn, "SELECT * FROM members WHERE team='C'");
-				while ($row = mysqli_fetch_array($result)) {
-					$member= $row['member'];
-					echo "<tr><td>" . $member . "</td></tr>";
-				}					
-				?>
+                <?php
+                $result = mysqli_query($conn, "SELECT * FROM members WHERE team='C'");
+                while ($row = mysqli_fetch_array($result)) {
+                    $member = $row['member'];
+                    echo "<tr><td>" . $member . "</td></tr>";
+                }
+                ?>
             </table>
         </div>
     </div>
@@ -158,37 +158,37 @@ mysqli_select_db($conn,"robolympics");
             </div>
             <div class="flex justify-left">
                 <h3 class="font-medium text-base self-center truncate">Current score:
- 				<?php
-				$result= mysqli_query($conn, "SELECT * FROM robots WHERE team='D'");
-				while ($row = mysqli_fetch_array($result)) {
-					$score= $row['game1_score'] + $row['game2_score'] + $row['game3_score'];
-					echo $score;
-				}					
-				?>
-				</h3>
+                    <?php
+                    $result = mysqli_query($conn, "SELECT * FROM robots WHERE team='D'");
+                    while ($row = mysqli_fetch_array($result)) {
+                        $score = $row['game1_score'] + $row['game2_score'] + $row['game3_score'];
+                        echo $score;
+                    }
+                    ?>
+                </h3>
             </div>
             <div class="flex w-full justify-left">
                 <h3 class="font-medium text-base self-center truncate">Bot Name:
-				<?php
-				$result= mysqli_query($conn, "SELECT * FROM robots WHERE team='D'");
-				while ($row = mysqli_fetch_array($result)) {
-					$name = $row['bot_name'];
-					echo $name;
-				}					
-				?>
-				</h3>
+                    <?php
+                    $result = mysqli_query($conn, "SELECT * FROM robots WHERE team='D'");
+                    while ($row = mysqli_fetch_array($result)) {
+                        $name = $row['bot_name'];
+                        echo $name;
+                    }
+                    ?>
+                </h3>
             </div>
             <table style="width: 100%">
                 <tr>
                     <th style="text-align: center">Members</th>
                 </tr>
-				<?php
-				$result= mysqli_query($conn, "SELECT * FROM members WHERE team='D'");
-				while ($row = mysqli_fetch_array($result)) {
-					$member= $row['member'];
-					echo "<tr><td>" . $member . "</td></tr>";
-				}					
-				?>
+                <?php
+                $result = mysqli_query($conn, "SELECT * FROM members WHERE team='D'");
+                while ($row = mysqli_fetch_array($result)) {
+                    $member = $row['member'];
+                    echo "<tr><td>" . $member . "</td></tr>";
+                }
+                ?>
             </table>
         </div>
     </div>
@@ -200,42 +200,43 @@ mysqli_select_db($conn,"robolympics");
             </div>
             <div class="flex justify-left">
                 <h3 class="font-medium text-base self-center truncate">Current score:
- 				<?php
-				$result= mysqli_query($conn, "SELECT * FROM robots WHERE team='E'");
-				while ($row = mysqli_fetch_array($result)) {
-					$score= $row['game1_score'] + $row['game2_score'] + $row['game3_score'];
-					echo $score;
-				}					
-				?>
-				</h3>
+                    <?php
+                    $result = mysqli_query($conn, "SELECT * FROM robots WHERE team='E'");
+                    while ($row = mysqli_fetch_array($result)) {
+                        $score = $row['game1_score'] + $row['game2_score'] + $row['game3_score'];
+                        echo $score;
+                    }
+                    ?>
+                </h3>
             </div>
             <div class="flex w-full justify-left">
                 <h3 class="font-medium text-base self-center truncate">Bot Name:
-				<?php
-				$result= mysqli_query($conn, "SELECT * FROM robots WHERE team='E'");
-				while ($row = mysqli_fetch_array($result)) {
-					$name = $row['bot_name'];
-					echo $name;
-				}					
-				?>
-				</h3>
+                    <?php
+                    $result = mysqli_query($conn, "SELECT * FROM robots WHERE team='E'");
+                    while ($row = mysqli_fetch_array($result)) {
+                        $name = $row['bot_name'];
+                        echo $name;
+                    }
+                    ?>
+                </h3>
             </div>
             <table style="width: 100%">
                 <tr>
                     <th style="text-align: center">Members</th>
                 </tr>
-				<?php
-				$result= mysqli_query($conn, "SELECT * FROM members WHERE team='E'");
-				while ($row = mysqli_fetch_array($result)) {
-					$member= $row['member'];
-					echo "<tr><td>" . $member . "</td></tr>";
-				}					
-				?>
+                <?php
+                $result = mysqli_query($conn, "SELECT * FROM members WHERE team='E'");
+                while ($row = mysqli_fetch_array($result)) {
+                    $member = $row['member'];
+                    echo "<tr><td>" . $member . "</td></tr>";
+                }
+                ?>
             </table>
         </div>
     </div>
 </body>
+
 </html>
 <?php
-    mysqli_close($conn);
+mysqli_close($conn);
 ?>

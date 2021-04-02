@@ -1,7 +1,6 @@
 <?php
 // Initialize the session
 session_start();
-
 ?>
 <!doctype html>
 <html lang="en">
@@ -15,7 +14,7 @@ session_start();
 <body class="min-h-full bg-gray-800 text-white">
     <h1 class="text-center text-4xl m-5">Project Battlebot</h1>
     <?php
-        require_once('navbar.php');
+    require_once('navbar.php');
     ?>
     <div class="flex justify-center font-medium">
         <div class="flex-col w-96 m-5 p-4 bg-gray-600 rounded">
@@ -95,7 +94,7 @@ session_start();
                     mysqli_stmt_bind_result($stmt, $passwordHash);
                     mysqli_stmt_store_result($stmt);
                     mysqli_stmt_fetch($stmt);
-                    echo'1';
+                    echo '1';
                     //Stores the password hash
                     if (password_verify($oldPassword, $passwordHash)) {
                         $hashPass = password_hash($password, PASSWORD_DEFAULT);

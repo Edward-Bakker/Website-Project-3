@@ -20,4 +20,5 @@ session_start();
         <a href="adminbots.php" class="nav-button">Battlebots</a>
     </div>
 </body>
+
 </html>

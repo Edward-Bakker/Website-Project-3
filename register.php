@@ -35,18 +35,13 @@ session_start();
     if (isset($_POST['submit'])) {
         $name= filter_var($_POST['name'], FILTER_SANITIZE_SPECIAL_CHARS);
         $username = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-        $password = filter_var($_POST['password'], FILTER_SANITIZE_SPECIAL_CHARS);
-        $verifyPassword = filter_var($_POST['verifyPassword'], FILTER_SANITIZE_SPECIAL_CHARS);
+        $password = filter_var($_POST['password']);
+        $verifyPassword = filter_var($_POST['verifyPassword']);
         $team_name = filter_var($_POST['team_name'], FILTER_SANITIZE_SPECIAL_CHARS);
         if (!empty(trim($username)) && !empty(trim($password)) && !empty(trim($verifyPassword)) && !empty(trim($name)) && !empty(trim($team_name)) ) {
-            if ($password == $verifyPassword) {
-                $server = "localhost";
-                $user = "root";
-                $dbpass = "";
-                $dbname = "robolympics";
-
-                /* Attempt to connect to MySQL database */
-                $link = mysqli_connect($server, $user, $dbpass, $dbname);
+            if ($password === $verifyPassword) {
+                $config = require_once('config.php');
+                $link = mysqli_connect($config['host'], $config['user'], $config['password'], $config['name']);
 
                 // Check connection
                 if ($link === false) {
@@ -70,13 +65,13 @@ session_start();
                                 $param_username = $username;
                                 $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
                                 $param_team_name = $team_name;
-                                
+
                                 // Bind variables to the prepared statement as parameters
                                 mysqli_stmt_bind_param($stmtCreate, "ssss", $param_name, $param_username, $param_password, $param_team_name);
 
                                 // Attempt to execute the prepared statement
                                 if (mysqli_stmt_execute($stmtCreate)) {
-                                    
+
                                     mysqli_stmt_close($stmtCreate);
                                     mysqli_stmt_close($stmt);
                                     header('location: login.php');
