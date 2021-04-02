@@ -68,7 +68,10 @@ $conn = mysqli_connect($config['host'], $config['user'], $config['password'], $c
             <td class="px-6 py-4 text-center"><?=$row["team_name"]?></td>
             <td class="px-6 py-4 text-center"><a href = <?php echo "edituser.php?user=" . $row["user_id"]?>>Edit</a></td>
             </tr>
-            <?php endwhile; ?>
+            <?php endwhile; 
+            $stmt->close();
+            $conn->close();
+            ?>
         </tbody>
   </table>
         
