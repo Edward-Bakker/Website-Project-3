@@ -29,6 +29,53 @@ $userid = filter_input(INPUT_GET, "user", FILTER_SANITIZE_NUMBER_INT);
 
 
 <?php
+
+if (isset($_POST["submit"]))
+{
+if (empty($_POST["password"]))
+{
+    $name = filter_input(INPUT_POST, "name", FILTER_SANITIZE_STRING);
+    $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_STRING);
+    $admin = filter_input(INPUT_POST, "admin", FILTER_SANITIZE_NUMBER_INT);
+    $banned = filter_input(INPUT_POST, "banned", FILTER_SANITIZE_NUMBER_INT);
+    $teamName = strtoupper(filter_input(INPUT_POST, "teamname", FILTER_SANITIZE_STRING));
+
+    if ($conn === false) {
+        die("ERROR could not connect to database " . mysqli_connect_error());
+    }
+    if($stmt = $conn->prepare("UPDATE users SET name = ?, username = ?, admin = ?  , banned = ? , team_name = ? WHERE user_id = ? "))
+    {
+        $stmt->bind_param("ssssss", $name, $username, $admin, $banned, $teamName, $userid);
+        $stmt->execute();
+        $stmt->close();
+    }else
+    {
+        echo "could not execute";
+    }
+    
+}else
+{
+    $password = password_hash($_POST["password"],PASSWORD_DEFAULT);
+    $name = filter_input(INPUT_POST, "name", FILTER_SANITIZE_STRING);
+    $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_STRING);
+    $admin = filter_input(INPUT_POST, "admin", FILTER_SANITIZE_NUMBER_INT);
+    $banned = filter_input(INPUT_POST, "banned", FILTER_SANITIZE_NUMBER_INT);
+    $teamName = strtoupper(filter_input(INPUT_POST, "teamname", FILTER_SANITIZE_STRING));
+
+    if ($conn === false) {
+        die("ERROR could not connect to database " . mysqli_connect_error());
+    }
+    if($stmt = $conn->prepare("UPDATE users SET name = ?, username = ?, admin = ?  , banned = ? , team_name = ? , password = ? WHERE user_id = ? "))
+    {
+        $stmt->bind_param("sssssss", $name, $username, $admin, $banned, $teamName, $password, $userid);
+        $stmt->execute();
+        $stmt->close();
+    }else
+    {
+        echo "could not execute";
+    }
+}
+}
 if ($conn === false) {
     die("ERROR could not connect to database " . mysqli_connect_error());
 }
@@ -85,57 +132,5 @@ if($stmt = $conn->prepare("SELECT * FROM users WHERE `user_id` = ?"))
         </div>
     </div>
 </form>
-
-<?php
-if (isset($_POST["submit"]))
-{
-if (empty($_POST["password"]))
-{
-    $name = filter_input(INPUT_POST, "name", FILTER_SANITIZE_STRING);
-    $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_STRING);
-    $admin = filter_input(INPUT_POST, "admin", FILTER_SANITIZE_NUMBER_INT);
-    $banned = filter_input(INPUT_POST, "banned", FILTER_SANITIZE_NUMBER_INT);
-    $teamName = strtoupper(filter_input(INPUT_POST, "teamname", FILTER_SANITIZE_STRING));
-
-    if ($conn === false) {
-        die("ERROR could not connect to database " . mysqli_connect_error());
-    }
-    if($stmt = $conn->prepare("UPDATE users SET name = ?, username = ?, admin = ?  , banned = ? , team_name = ? WHERE user_id = ? "))
-    {
-        $stmt->bind_param("ssssss", $name, $username, $admin, $banned, $teamName, $userid);
-        $stmt->execute();
-        $stmt->close();
-        $conn->close();
-    }else
-    {
-        echo "could not execute";
-    }
-    
-}else
-{
-    $password = password_hash($_POST["password"],PASSWORD_DEFAULT);
-    $name = filter_input(INPUT_POST, "name", FILTER_SANITIZE_STRING);
-    $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_STRING);
-    $admin = filter_input(INPUT_POST, "admin", FILTER_SANITIZE_NUMBER_INT);
-    $banned = filter_input(INPUT_POST, "banned", FILTER_SANITIZE_NUMBER_INT);
-    $teamName = strtoupper(filter_input(INPUT_POST, "teamname", FILTER_SANITIZE_STRING));
-
-    if ($conn === false) {
-        die("ERROR could not connect to database " . mysqli_connect_error());
-    }
-    if($stmt = $conn->prepare("UPDATE users SET name = ?, username = ?, admin = ?  , banned = ? , team_name = ? , password = ? WHERE user_id = ? "))
-    {
-        $stmt->bind_param("sssssss", $name, $username, $admin, $banned, $teamName, $password, $userid);
-        $stmt->execute();
-        $stmt->close();
-        $conn->close();
-    }else
-    {
-        echo "could not execute";
-    }
-}
-}
-?>
-
 </body>   
 </html>
