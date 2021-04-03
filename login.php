@@ -58,7 +58,7 @@ if (isset($_POST['submit'])) {
             $_SESSION["admin"] = $admin;
             $_SESSION["user_id"] = $user_id;
             $_SESSION["loggedin"] = true;
-            header('Location: account.php');
+            header('Location: index.php');
         } else {
             echo 'Invalid password.';
         }

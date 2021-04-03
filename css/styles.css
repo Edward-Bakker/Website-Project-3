@@ -590,6 +590,10 @@ img {
   float: right;
 }
 
+.float-left {
+  float: left;
+}
+
 .font-mono {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
@@ -936,18 +940,6 @@ img {
   padding: 0.5rem;
   text-align: center;
   width: 6rem;
-}
-
-.request-button {
-  --tw-bg-opacity: 1;
-  background-color: rgba(75, 85, 99, var(--tw-bg-opacity));
-  border-radius: 0.25rem;
-  font-weight: 700;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  text-align: center;
 }
 
 @media (min-width: 768px) {
