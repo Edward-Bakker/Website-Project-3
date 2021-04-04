@@ -7,6 +7,11 @@ $conn = mysqli_connect($config['host'], $config['user'], $config['password'], $c
 if ($conn === false) {
     die("ERROR could not connect to database " . mysqli_connect_error());
 }
+if (!isset($_SESSION["userCameraControl"]))
+{
+    $_SESSION["userCameraControl"] = "";
+}
+
 if($stmt = $conn->prepare("SELECT * FROM camera_control LIMIT 1"))
 {
     $stmt->execute();
@@ -20,25 +25,23 @@ if($stmt = $conn->prepare("SELECT * FROM camera_control LIMIT 1"))
     }
     else
     {
-        // its a key of course ;)
-        // listen if no one knows it good so shhhhhhh (っ ͡❛ ͜ʖ ͡❛)っ
-        $_SESSION["cameraMainControl"] = "kjbdejbskfnbsjkabfilsanbfuiqbw4523fuy3v2u3v34jh43hjbkek";
+        //change session to random key so still set but not useable
+        $_SESSION["cameraMainControl"]="JgERf<7'ojEFpn[q:+;~$^'[E{8!m]";
+            $_SESSION["id"] = 0;
     }
 }else
 {
     echo "could not execute";
 }
-if (!isset($_SESSION["userCameraControl"]))
-{
-    $_SESSION["userCameraControl"] = "";
-}
+
+
 ?>
 <!doctype html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="refresh" content="30" >
+    <meta http-equiv="refresh" content="15" >
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="css/styles.css" rel="stylesheet" type="text/css">
 </head>
@@ -49,22 +52,6 @@ if (!isset($_SESSION["userCameraControl"]))
     ?>
     <div class="flex justify-center p-2 m-5">
         <div class="bg-gray-600 rounded">
-            <?php
-            // $Username = "user";
-            // $Password = "user_12";
-            // $ch = curl_init();
-            // curl_setopt($ch, CURLOPT_URL, "http://foscam.serverict.nl/videostream.cgi");
-            // curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            // curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-            // curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10); //10 seconds
-            // curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY); //kept trying options till it worked
-            // curl_setopt($ch, CURLOPT_USERPWD, "$Username:$Password");
-            // $result = curl_exec($ch);
-            // //$resultStatus = curl_getinfo($ch);
-            // //print 'ResultStatus:'.print_r($resultStatus) . "<br>";
-            // curl_close($ch);
-            // echo ($result);
-            ?>
             <iframe src="http://foscam.serverict.nl/videostream.cgi" title="Robolympics" width="640" height="480"></iframe>
         </div>
 
@@ -106,9 +93,13 @@ if (!isset($_SESSION["userCameraControl"]))
         if (!isset($_SESSION["admin"])) {
             $_SESSION["admin"] = 0;
         }
-        if (isset($_SESSION["userCameraControl"]) && isset($_SESSION["cameraMainControl"])) :
-
-            if ($_SESSION["userCameraControl"] == $_SESSION["cameraMainControl"] OR $_SESSION["admin"] == 1):
+        if (!isset($_SESSION["cameraMainControl"]))
+        {
+            $_SESSION["cameraMainControl"] = "";
+        }
+        if (($_SESSION["userCameraControl"]) == ($_SESSION["cameraMainControl"]) || $_SESSION["admin"] == 1) :
+            
+            if (isset($_SESSION["userCameraControl"]) && isset($_SESSION["cameraMainControl"])):
             ?>
             <div class="bg-gray-300 rounded">
                 <iframe src="http://foscam.serverict.nl/camera.htm" title="Robolympics" width="200" height="480"></iframe>
@@ -127,7 +118,7 @@ if (!isset($_SESSION["userCameraControl"]))
             <?php
             if ($_SESSION["admin"] == 1):
             ?>
-            <th class="sticky top-0 px-6 py-3 text-white bg-gray-900">Remove User</th>
+            <th class="sticky top-0 px-6 py-3 text-white bg-gray-900">Ban User</th>
             <?php 
             endif; 
             ?>
@@ -142,7 +133,7 @@ if (!isset($_SESSION["userCameraControl"]))
             <?php
             if ($_SESSION["admin"] == 1):
             ?>
-            <td class="px-6 py-4 text-center"><a href = <?php echo "removeuser.php?user=" . $row["controlID"]?>>Remove</a></td>
+            <td class="px-6 py-4 text-center"><a href = <?php echo "removeuser.php?user=" . $row["controlID"]?>>Ban</a></td>
             <?php 
             endif; 
             ?>
@@ -163,10 +154,16 @@ if (!isset($_SESSION["userCameraControl"]))
     <?php
     endif;
     if(isset($_SESSION["timestamp"])){
+        
         if (time() - strtotime($_SESSION["timestamp"]) >= 60 && time() - strtotime($_SESSION["timestamp"]) != time()) {
-            $_SESSION["userCameraControl"] = "";
+            if ($_SESSION["userCameraControl"] == $_SESSION["cameraMainControl"])
+			{
+			$_SESSION["userCameraControl"] = "";
             $_SESSION["timestamp"] = 0;
-            header("LOCATION: removeuser.php?user=" . $_SESSION["id"]);
+			$id = $_SESSION["id"];
+			$_SESSION["id"] = 0;
+            header("LOCATION: removeuser.php?user=" . $id);
+			}
         }
     }
     
