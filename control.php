@@ -13,6 +13,28 @@ session_start();
 <body class="min-h-full bg-gray-800 text-white">
     <?php
     require_once('navbar.php');
+    if(isset($_GET["command"]))
+    {
+        $command = $_GET["command"];
+        //The url you wish to send the POST request to
+        $url = "localhost:8008/settask";
+        //The data you want to send via POST look at manual of api
+        $data = array("BotID" => 1, "Task" => "$command" );
+        //url-ify the data for the POST
+        $data_string = http_build_query($data);
+        //open connection
+        $ch = curl_init();
+        //set the url, number of POST vars, POST data
+        curl_setopt($ch,CURLOPT_URL, $url);
+        curl_setopt($ch,CURLOPT_POST, true);
+        curl_setopt($ch,CURLOPT_POSTFIELDS, $data_string);
+        //So that curl_exec returns the contents of the cURL; rather than echoing it
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        //execute post
+        $result = curl_exec($ch);
+        echo $result;
+
+    }
     ?>
     <div class="flex justify-center m-5">
         <div class="flex justify-center flex-col">
