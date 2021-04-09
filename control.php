@@ -43,9 +43,19 @@ session_start();
             </div>
             <form class="bg-gray-600 p-2 rounded m-2 text-center">
                 <select name="command" class="bg-gray-800 p-2 rounded">
-                    <option value="race">Race</option>
-                    <option value="battle">Battle</option>
-                    <option value="jesper">Jesper overrijden</option>
+                <?php
+                 $the_key = "race"; // or whatever you want
+                 if (isset($_GET["command"])){
+                    $the_key = $command;      
+                    }  
+                    foreach(array(
+                        "race" => "Race","tiktactoe" => "TikTacToe", "maze" => "Maze", "shaperedraw" => "ShapeRedraw"
+                    ) as $key => $val){
+                        ?><option value="<?php echo $key; ?>"<?php
+                            if($key==$the_key)echo ' selected="selected"';
+                        ?>><?php echo $val; ?></option><?php
+                    }
+                ?>
                 </select>
                 <input type="submit" class="bg-gray-800 p-2 rounded" value="Send command">
             </form>
