@@ -16,10 +16,10 @@ session_start();
     if(isset($_GET["command"]))
     {
         $command = $_GET["command"];
-        //The url you wish to send the POST request to
+        //The url you wish to send the POST request to (change url)
         $url = "localhost:8008/settask";
         //The data you want to send via POST look at manual of api
-        $data = array("BotID" => 1, "Task" => "$command" );
+        $data = array('id' => 1, 'task' => '$command');
         //url-ify the data for the POST
         $data_string = http_build_query($data);
         //open connection
