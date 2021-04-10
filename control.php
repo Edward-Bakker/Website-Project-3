@@ -17,7 +17,7 @@ session_start();
     {
         $command = $_GET["command"];
         //The url you wish to send the POST request to (change url)
-        $url = "api.samklop.xyz/settask";
+        $url = "https://api.samklop.xyz/settask";
         //The data you want to send via POST look at manual of api
         $data = array('id' => 1, 'task' => '$command');
         //url-ify the data for the POST
@@ -32,6 +32,9 @@ session_start();
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         //execute post
         $result = curl_exec($ch);
+        $info = curl_getinfo($ch);
+
+        echo $info['http_code'];
         echo $result;
 
     }
