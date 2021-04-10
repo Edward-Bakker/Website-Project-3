@@ -41,7 +41,7 @@ if($stmt = $conn->prepare("SELECT * FROM camera_control LIMIT 1"))
 
 <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="refresh" content="15" >
+    <meta http-equiv="refresh" content="2" >
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="css/styles.css" rel="stylesheet" type="text/css">
 </head>
@@ -154,21 +154,35 @@ if($stmt = $conn->prepare("SELECT * FROM camera_control LIMIT 1"))
     <?php
     endif;
     if(isset($_SESSION["timestamp"])){
-        
-        if (time() - strtotime($_SESSION["timestamp"]) >= 60 && time() - strtotime($_SESSION["timestamp"]) != time()) {
-            if ($_SESSION["userCameraControl"] == $_SESSION["cameraMainControl"])
-			{
-			$_SESSION["userCameraControl"] = "";
-            $_SESSION["timestamp"] = 0;
-			$id = $_SESSION["id"];
-			$_SESSION["id"] = 0;
-            header("LOCATION: removeuser.php?user=" . $id);
-			}
-        }
+        if ($_SESSION["userCameraControl"] != $_SESSION["cameraMainControl"])
+        {
+            $newTimeSession = time();
+            if($stmt = $conn->prepare("UPDATE camera_control SET request_time=?"))
+            {
+                $stmt->bind_param("s", $newTimeSession);
+                $stmt->execute();
+                $stmt->close();
+            }else
+    {
+        echo "could not execute";
     }
+        }
+            echo($_SESSION["timestamp"]);
+            if (time() - strtotime($_SESSION["timestamp"]) >= 60){
+                if ($_SESSION["userCameraControl"] == $_SESSION["cameraMainControl"])
+                {
+                $_SESSION["userCameraControl"] = "";
+                $_SESSION["timestamp"] = 0;
+                $id = $_SESSION["id"];
+                $_SESSION["id"] = 0;
+                header("LOCATION: removeuser.php?user=" . $id); 
+                }
+            }   
+           
+    }   
     
     
-    ?>
-</body>
+    ?>  
+</body> 
 
 </html>
