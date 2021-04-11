@@ -51,17 +51,20 @@
                     </div>
                 </div>
                 <div class="flex flex-col progressBars p-4">
+                    <a href=""><div class="bg-gray-600 w-full h-10 max-h-10 rounded">
+                        <p class="text-white text-center ">Enable Sound<p>
+                    </div></a>
                     <p class="text-gray-600">Progress Bar<p>
-                    <div class="w-full h-px-20 border-4 border-solid border-gray-600">
-                        <div class="w-4-5 h-full bg-gray-600"></div>
+                    <div class="w-full h-px-20 border-4 border-solid border-gray-600 myProgress" id="myProgress1">
+                        <div class="h-full bg-gray-600 myBar" id="myBar1"></div>
                     </div>
                     <p class="text-gray-600">Progress Bar<p>
-                    <div class="w-full h-px-20 border-4 border-solid border-gray-600">
-                        <div class="w-2-5 h-full bg-gray-600"></div>
+                    <div class="w-full h-px-20 border-4 border-solid border-gray-600 myProgress" id="myProgress2">
+                        <div class="h-full bg-gray-600 myBar" id="myBar2"></div>
                     </div>
                     <p class="text-gray-600">Progress Bar<p>
-                    <div class="w-full h-px-20 border-4 border-solid border-gray-600">
-                        <div class="w-3-5 h-full bg-gray-600"></div>
+                    <div class="w-full h-px-20 border-4 border-solid border-gray-600 myProgress" id="myProgress3">
+                        <div class="h-full bg-gray-600 myBar" id="myBar3"></div>
                     </div>
                 </div>
             </div>

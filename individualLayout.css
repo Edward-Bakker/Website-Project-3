@@ -116,6 +116,14 @@ body{
     margin: 0.75rem;
 }
 
+.max-h-10{
+    max-height: 2.5rem;
+}
+
+.h-10{
+    height: 2.5rem;
+}
+
 .wrapper{
     width: 80%;
 }
@@ -123,6 +131,20 @@ body{
 .progressBars{
     flex-grow: 1;
 }
+
+.myProgress {
+    width: 100%;
+    /* background-color: #ddd; */
+  }
+  
+  .myBar {
+    width: 0%;
+    height: 30px;
+    background-color: #4CAF50;
+    text-align: center;
+    line-height: 30px;
+    /* color: white; */
+  }
 
 @media (max-width: 1350px) {
     .wrapper {
