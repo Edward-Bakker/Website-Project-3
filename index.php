@@ -27,7 +27,7 @@ if($stmt = $conn->prepare("SELECT * FROM camera_control LIMIT 1"))
     {
         //change session to random key so still set but not useable
         $_SESSION["cameraMainControl"]="JgERf<7'ojEFpn[q:+;~$^'[E{8!m]";
-            $_SESSION["id"] = 0;
+        $_SESSION["id"] = 0;
     }
 }else
 {
@@ -41,7 +41,7 @@ if($stmt = $conn->prepare("SELECT * FROM camera_control LIMIT 1"))
 
 <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="refresh" content="2" >
+    <meta http-equiv="refresh" content="30" >
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="css/styles.css" rel="stylesheet" type="text/css">
 </head>
@@ -74,9 +74,10 @@ if($stmt = $conn->prepare("SELECT * FROM camera_control LIMIT 1"))
         if (isset($_POST["submit_name"]))
         {
             $requestName = filter_input(INPUT_POST, "request_name", FILTER_SANITIZE_STRING);
-            if($stmt = $conn->prepare("INSERT INTO camera_control (name) Values (?)"))
+            $newTimeSession = date("Y-m-d H:i:s");
+            if($stmt = $conn->prepare("INSERT INTO camera_control (name,requested_time) Values (?,?)"))
             {
-                $stmt->bind_param("s", $requestName);
+                $stmt->bind_param("ss", $requestName, $newTimeSession);
                 $stmt->execute();
                 $stmt->close();
                 $_SESSION["userCameraControl"] = $requestName;
@@ -154,20 +155,6 @@ if($stmt = $conn->prepare("SELECT * FROM camera_control LIMIT 1"))
     <?php
     endif;
     if(isset($_SESSION["timestamp"])){
-        if ($_SESSION["userCameraControl"] != $_SESSION["cameraMainControl"])
-        {
-            $newTimeSession = time();
-            if($stmt = $conn->prepare("UPDATE camera_control SET request_time=?"))
-            {
-                $stmt->bind_param("s", $newTimeSession);
-                $stmt->execute();
-                $stmt->close();
-            }else
-    {
-        echo "could not execute";
-    }
-        }
-            echo($_SESSION["timestamp"]);
             if (time() - strtotime($_SESSION["timestamp"]) >= 60){
                 if ($_SESSION["userCameraControl"] == $_SESSION["cameraMainControl"])
                 {
@@ -175,10 +162,23 @@ if($stmt = $conn->prepare("SELECT * FROM camera_control LIMIT 1"))
                 $_SESSION["timestamp"] = 0;
                 $id = $_SESSION["id"];
                 $_SESSION["id"] = 0;
-                header("LOCATION: removeuser.php?user=" . $id); 
+                 header("LOCATION: removeuser.php?user=" . $id); 
                 }
             }   
-           
+            if ($_SESSION["userCameraControl"] != $_SESSION["cameraMainControl"])
+            {
+                $newTimeSession = date("Y-m-d H:i:s");
+                $userName = $_SESSION["userCameraControl"];
+                if($stmt = $conn->prepare("UPDATE camera_control SET requested_time = ? WHERE name = ?"))
+                {
+                    $stmt->bind_param("ss", $newTimeSession, $userName);
+                    $stmt->execute();
+                    $stmt->close();
+                }else
+                {
+                    echo "could not execute";
+                }
+            }
     }   
     
     
