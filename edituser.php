@@ -1,7 +1,10 @@
 <?php
 // Initialize the session
 session_start();
-
+if ($_SESSION["admin"] == 0)
+{
+    header("Location: index.php");
+}
 $config = require_once('config.php');
 $conn = mysqli_connect($config['host'], $config['user'], $config['password'], $config['name']);
 $userid = filter_input(INPUT_GET, "user", FILTER_SANITIZE_NUMBER_INT);
