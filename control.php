@@ -19,7 +19,7 @@ session_start();
         //The url you wish to send the POST request to (change url)
         $url = "https://api.samklop.xyz/settask";
         //The data you want to send via POST look at manual of api
-        $data = array('id' => 1, 'task' => '$command');
+        $data = array('id' => 1, 'task' => $command);
         //url-ify the data for the POST
         $data_string = http_build_query($data);
         //open connection
