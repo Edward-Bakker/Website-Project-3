@@ -1,6 +1,9 @@
 <?php
 session_start();
+if (isset($_SESSION['botID']))
+{
 unset($_SESSION['botID']);
+}
 ?>
 <!doctype html>
 <html lang="en">
