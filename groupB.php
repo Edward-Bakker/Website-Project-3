@@ -17,30 +17,9 @@
             <div class="flex flex-wrap upperHalf justify-between h-2-4">
                 <div class="flex flex-col border-b-4 border-l-4 border-r-4 border-solid border-gray-600 bg-gray-400 w-px-500 m-5">
                     <h2 class="bg-gray-600 p-2">Scoreboard</h2>
-                    <div class="flex flex-grow text-gray-600 px-3 items-center p-1">1.
-                    <?php
-                     $result = mysqli_query($conn, "SELECT *FROM robots WHERE team='B'");
-                     while ($row = mysqli_fetch_array($result)) {
-                         $score1A = $row['game1_score'];
-                         echo $score1B;
-                     }
-                    ?>
-                    </div>
-                    <div class="flex flex-grow text-gray-600 px-3 items-center p-1">2.
-                    <?php
-                     while ($row = mysqli_fetch_array($result)) {
-                        $score1A = $row['game2_score'];
-                        echo $score2B;
-                    }
-                    ?>
-                    </div>
-                    <div class="flex flex-grow text-gray-600 px-3 items-center p-1">3.
-                    <?php
-                    while ($row = mysqli_fetch_array($result)) {
-                        $score1A = $row['game3_score'];
-                        echo $score3B;
-                    }?>
-                    </div>
+                    <div class="flex flex-grow text-gray-600 px-3 items-center p-1">1.</div>
+                    <div class="flex flex-grow text-gray-600 px-3 items-center p-1">2.</div>
+                    <div class="flex flex-grow text-gray-600 px-3 items-center p-1">3.</div>
                     <div class="flex flex-grow text-gray-600 px-3 items-center p-1">4.</div>
                     <div class="flex flex-grow text-gray-600 px-3 items-center p-1">5.</div>
                 </div>
