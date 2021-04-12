@@ -1,3 +1,11 @@
+<?php
+// Initialize the session
+session_start();
+
+$config = require_once('config.php');
+$conn = mysqli_connect($config['host'], $config['user'], $config['password'], $config['name']);
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -9,10 +17,11 @@
     </head>
 
     <body class="text-white bg">
+    <?php
+    require_once('navbar.php');
+    ?>
         <h1 class="text-center text-4xl m-5 gray">Project Battlebot - Group B</h1>
-        <?php
-        require_once('navbar.php');
-        ?>
+
         <div class="flex flex-col flex-grow wrapper">
             <div class="flex flex-wrap upperHalf justify-between h-2-4">
                 <div class="flex flex-col border-b-4 border-l-4 border-r-4 border-solid border-gray-600 bg-gray-400 w-px-500 m-5">
