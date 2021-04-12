@@ -20,11 +20,11 @@ session_start();
     ?>
     <div class="flex justify-center">
         <form class="flex flex-col bg-gray-600 p-2 rounded m-5" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
-            <input class="mb-2 p-1 rounded" name="name" placeholder="Name">
-            <input class="mb-2 p-1 rounded" name="team_name" placeholder="Team Name">
-            <input class="mb-2 p-1 rounded" type="email" name="email" placeholder="Email">
-            <input class="mb-2 p-1 rounded" type="password" name="password" placeholder="Password">
-            <input class="mb-2 p-1 rounded" type="password" name="verifyPassword" placeholder="Password">
+            <input class="mb-2 p-1 rounded text-gray-700" name="name" placeholder="Name">
+            <input class="mb-2 p-1 rounded text-gray-700" name="team_name" placeholder="Team Name">
+            <input class="mb-2 p-1 rounded text-gray-700" type="email" name="email" placeholder="Email">
+            <input class="mb-2 p-1 rounded text-gray-700" type="password" name="password" placeholder="Password">
+            <input class="mb-2 p-1 rounded text-gray-700" type="password" name="verifyPassword" placeholder="Password">
             <input class="bg-gray-800 p-2 rounded" name="submit" type="submit" value="Register">
         </form>
     </div>

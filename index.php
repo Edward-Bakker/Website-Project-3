@@ -41,18 +41,27 @@ if($stmt = $conn->prepare("SELECT * FROM camera_control LIMIT 1"))
 
 <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="refresh" content="30" >
+    <meta http-equiv="refresh" content="25" >
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <link src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
 <body class="min-h-full bg-gray-800 text-white">
     <?php
     require_once('navbar.php');
     ?>
-    <div class="flex justify-center p-2 m-5">
-        <div class="bg-gray-600 rounded">
-            <iframe src="http://foscam.serverict.nl/videostream.cgi" title="Robolympics" width="640" height="480"></iframe>
+     <script>
+        $(document).ready(function(){
+        setInterval(function(){
+            $("#imgg").load(window.location.href + " #imgg" );
+        }, 3000);
+        });
+    </script>
+    <div class="flex justify-center p-2 m-5 text-gray-700">
+        <div id="imgg" class="bg-gray-600 rounded">
+        <!-- <img src="http://foscam.serverict.nl/snapshot.cgi?&user=gast&pwd=gast&t="> -->
+        <iframe src="http://foscam.serverict.nl/snapshot.cgi" title="Robolympics" width="480" height="480">
         </div>
 
         <?php
