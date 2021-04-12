@@ -26,7 +26,7 @@ $conn = mysqli_connect($config['host'], $config['user'], $config['password'], $c
         <a href="adminallusers.php" class="nav-button">All Users</a>
     </div>
     <div class="flex justify-center flex-wrap">
-        <div class="text-center m-4 p-4 bg-gray-600  w-max rounded">
+        <div class="text-center m-4 p-4 bg-gray-600 w-max rounded">
             <h1 class="text-4xl font-bold">
                 <?php
                 $result = mysqli_query($conn, "SELECT * FROM games WHERE game_id=1");
@@ -66,12 +66,10 @@ $conn = mysqli_connect($config['host'], $config['user'], $config['password'], $c
                         ?>
                     </td>
                     <td>
-                    <div class="text-gray-700">
                         <form name="game1botA" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-                            <input class="text-gray-700" type="number" id="newScoreGame1botA" name="newScoreGame1botA">
-                            <input class="text-gray-700" type="submit" name="submitGame1botA" value="Edit score">
-                    </div>
-                    
+                            <input type="number" id="newScoreGame1botA" name="newScoreGame1botA">
+                            <input type="submit" name="submitGame1botA" value="Edit score">
+                        </form>
                         <?php
                         if (isset($_POST['submitGame1botA'])) {
                             $newScoreGame1botA = $_POST['newScoreGame1botA'] + $score1A;
@@ -111,12 +109,10 @@ $conn = mysqli_connect($config['host'], $config['user'], $config['password'], $c
                         ?>
                     </td>
                     <td>
-                    <div class="text-gray-700">
                         <form name="game1botB" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                             <input type="number" id="newScoreGame1botB" name="newScoreGame1botB">
                             <input type="submit" name="submitGame1botB" value="Edit score">
                         </form>
-                    </div>
                         <?php
                         if (isset($_POST['submitGame1botB'])) {
                             $newScoreGame1botB = $_POST['newScoreGame1botB'] + $score1B;
@@ -156,12 +152,10 @@ $conn = mysqli_connect($config['host'], $config['user'], $config['password'], $c
                         ?>
                     </td>
                     <td>
-                    <div class="text-gray-700">
                         <form name="game1botC" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-                            <input type="number" id="newScoreGame1botC" name="newScoreGame1botC" class="text-gray-700">
+                            <input type="number" id="newScoreGame1botC" name="newScoreGame1botC">
                             <input type="submit" name="submitGame1botC" value="Edit score">
                         </form>
-                    </div>
                         <?php
                         if (isset($_POST['submitGame1botC'])) {
                             $newScoreGame1botC = $_POST['newScoreGame1botC'] + $score1C;
@@ -201,12 +195,10 @@ $conn = mysqli_connect($config['host'], $config['user'], $config['password'], $c
                         ?>
                     </td>
                     <td>
-                    <div class="text-gray-700">
                         <form name="game1botD" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                             <input type="number" id="newScoreGame1botD" name="newScoreGame1botD">
                             <input type="submit" name="submitGame1botD" value="Edit score">
                         </form>
-                    </div>
                         <?php
                         if (isset($_POST['submitGame1botD'])) {
                             $newScoreGame1botD = $_POST['newScoreGame1botD'] + $score1D;
@@ -246,12 +238,10 @@ $conn = mysqli_connect($config['host'], $config['user'], $config['password'], $c
                         ?>
                     </td>
                     <td>
-                    <div class="text-gray-700">
                         <form name="game1botE" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                             <input type="number" id="newScoreGame1botE" name="newScoreGame1botE">
                             <input type="submit" name="submitGame1botE" value="Edit score">
                         </form>
-                    </div>
                         <?php
                         if (isset($_POST['submitGame1botE'])) {
                             $newScoreGame1botE = $_POST['newScoreGame1botE'] + $score1E;
@@ -269,12 +259,10 @@ $conn = mysqli_connect($config['host'], $config['user'], $config['password'], $c
                     </td>
                 </tr>
                 <tr>
-                <div class="text-gray-700">
                     <form name="game1name" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                         <input type="text" id="newNameGame1" name="newNameGame1" placeholder="Edit game name">
                         <input type="submit" name="submitGame1name" value="Edit name">
                     </form>
-                </div>
                     <?php
                     if (isset($_POST['submitGame1name'])) {
                         $newNameGame1 = $_POST['newNameGame1'];
@@ -332,12 +320,10 @@ $conn = mysqli_connect($config['host'], $config['user'], $config['password'], $c
                         ?>
                     </td>
                     <td>
-                    <div class="text-gray-700">
                         <form name="game2botA" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                             <input type="number" id="newScoreGame2botA" name="newScoreGame2botA">
                             <input type="submit" name="submitGame2botA" value="Edit score">
                         </form>
-                    </div>
                         <?php
                         if (isset($_POST['submitGame2botA'])) {
                             $newScoreGame2botA = $_POST['newScoreGame2botA'] + $score2A;
@@ -377,12 +363,10 @@ $conn = mysqli_connect($config['host'], $config['user'], $config['password'], $c
                         ?>
                     </td>
                     <td>
-                    <div class="text-gray-700">
                         <form name="game2botB" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                             <input type="number" id="newScoreGame2botB" name="newScoreGame2botB">
                             <input type="submit" name="submitGame2botB" value="Edit score">
                         </form>
-                    </div>
                         <?php
                         if (isset($_POST['submitGame2botB'])) {
                             $newScoreGame2botB = $_POST['newScoreGame2botB'] + $score2B;
@@ -422,12 +406,10 @@ $conn = mysqli_connect($config['host'], $config['user'], $config['password'], $c
                         ?>
                     </td>
                     <td>
-                    <div class="text-gray-700">
                         <form name="game2botC" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                             <input type="number" id="newScoreGame2botC" name="newScoreGame2botC">
                             <input type="submit" name="submitGame2botC" value="Edit score">
                         </form>
-                    </div>
                         <?php
                         if (isset($_POST['submitGame2botC'])) {
                             $newScoreGame2botC = $_POST['newScoreGame2botC'] + $score2C;
@@ -467,12 +449,10 @@ $conn = mysqli_connect($config['host'], $config['user'], $config['password'], $c
                         ?>
                     </td>
                     <td>
-                    <div class="text-gray-700">
                         <form name="game2botD" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                             <input type="number" id="newScoreGame2botD" name="newScoreGame2botD">
                             <input type="submit" name="submitGame2botD" value="Edit score">
                         </form>
-                    </div>
                         <?php
                         if (isset($_POST['submitGame2botD'])) {
                             $newScoreGame2botD = $_POST['newScoreGame2botD'] + $score2D;
@@ -512,12 +492,10 @@ $conn = mysqli_connect($config['host'], $config['user'], $config['password'], $c
                         ?>
                     </td>
                     <td>
-                    <div class="text-gray-700">
                         <form name="game2botE" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                             <input type="number" id="newScoreGame2botE" name="newScoreGame2botE">
                             <input type="submit" name="submitGame2botE" value="Edit score">
                         </form>
-                    </div>
                         <?php
                         if (isset($_POST['submitGame2botE'])) {
                             $newScoreGame2botE = $_POST['newScoreGame2botE'] + $score2E;
@@ -535,13 +513,10 @@ $conn = mysqli_connect($config['host'], $config['user'], $config['password'], $c
                     </td>
                 </tr>
                 <tr>
-                <div class="text-gray-700">
                     <form name="game2name" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                         <input type="text" id="newNameGame2" name="newNameGame2" placeholder="Edit game name">
                         <input type="submit" name="submitGame2name" value="Edit name">
                     </form>
-                    </div>
-
                     <?php
                     if (isset($_POST['submitGame2name'])) {
                         $newNameGame2 = $_POST['newNameGame2'];
@@ -599,12 +574,10 @@ $conn = mysqli_connect($config['host'], $config['user'], $config['password'], $c
                         ?>
                     </td>
                     <td>
-                    <div class="text-gray-700">
                         <form name="game3botA" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                             <input type="number" id="newScoreGame3botA" name="newScoreGame3botA">
                             <input type="submit" name="submitGame3botA" value="Edit score">
                         </form>
-                    </div>
                         <?php
                         if (isset($_POST['submitGame3botA'])) {
                             $newScoreGame3botA = $_POST['newScoreGame3botA'] + $score3A;
@@ -644,12 +617,10 @@ $conn = mysqli_connect($config['host'], $config['user'], $config['password'], $c
                         ?>
                     </td>
                     <td>
-                    <div class="text-gray-700">
                         <form name="game3botB" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                             <input type="number" id="newScoreGame3botB" name="newScoreGame3botB">
                             <input type="submit" name="submitGame3botB" value="Edit score">
                         </form>
-                    </div>
                         <?php
                         if (isset($_POST['submitGame3botB'])) {
                             $newScoreGame3botB = $_POST['newScoreGame3botB'] + $score3B;
@@ -689,12 +660,10 @@ $conn = mysqli_connect($config['host'], $config['user'], $config['password'], $c
                         ?>
                     </td>
                     <td>
-                    <div class="text-gray-700">
                         <form name="game3botC" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                             <input type="number" id="newScoreGame3botC" name="newScoreGame3botC">
                             <input type="submit" name="submitGame3botC" value="Edit score">
                         </form>
-                    </div>
                         <?php
                         if (isset($_POST['submitGame3botC'])) {
                             $newScoreGame3botC = $_POST['newScoreGame3botC'] + $score3C;
@@ -734,12 +703,10 @@ $conn = mysqli_connect($config['host'], $config['user'], $config['password'], $c
                         ?>
                     </td>
                     <td>
-                    <div class="text-gray-700">
                         <form name="game3botD" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                             <input type="number" id="newScoreGame3botD" name="newScoreGame3botD">
                             <input type="submit" name="submitGame3botD" value="Edit score">
                         </form>
-                    </div>
                         <?php
                         if (isset($_POST['submitGame3botD'])) {
                             $newScoreGame3botD = $_POST['newScoreGame3botD'] + $score3D;
@@ -779,12 +746,10 @@ $conn = mysqli_connect($config['host'], $config['user'], $config['password'], $c
                         ?>
                     </td>
                     <td>
-                    <div class="text-gray-700">
                         <form name="game3botE" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                             <input type="number" id="newScoreGame3botE" name="newScoreGame3botE">
                             <input type="submit" name="submitGame3botE" value="Edit score">
                         </form>
-                    </div>
                         <?php
                         if (isset($_POST['submitGame3botE'])) {
                             $newScoreGame3botE = $_POST['newScoreGame3botE'] + $score3E;
@@ -802,12 +767,10 @@ $conn = mysqli_connect($config['host'], $config['user'], $config['password'], $c
                     </td>
                 </tr>
                 <tr>
-                <div class="text-gray-700">
                     <form name="game3name" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                         <input type="text" id="newNameGame3" name="newNameGame3" placeholder="Edit game name">
                         <input type="submit" name="submitGame3name" value="Edit name">
                     </form>
-                    </div>
                     <?php
                     if (isset($_POST['submitGame3name'])) {
                         $newNameGame3 = $_POST['newNameGame3'];
@@ -825,7 +788,7 @@ $conn = mysqli_connect($config['host'], $config['user'], $config['password'], $c
                 </tr>
             </table>
         </div>
-        <div class="text-gray-700">
+        <div>
             <form name="zero" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                 <input type="submit" name="zeroScore" value="RESTART SCORES" class="button">
             </form>
