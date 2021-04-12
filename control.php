@@ -1,5 +1,10 @@
 <?php
 session_start();
+if (isset($_GET["key"]))
+{
+    $_SESSION['botID'] = (int)filter_input(INPUT_GET, "key", FILTER_SANITIZE_NUMBER_INT);
+}
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -12,14 +17,16 @@ session_start();
 
 <body class="min-h-full bg-gray-800 text-white">
     <?php
+    
+
     require_once('navbar.php');
-    if(isset($_GET["command"]))
+    if(isset($_GET["command"]) && isset($_SESSION['botID']))
     {
         $command = $_GET["command"];
         //The url you wish to send the POST request to (change url)
         $url = "https://api.samklop.xyz/settask";
         //The data you want to send via POST look at manual of api
-        $data = array('id' => 1, 'task' => $command);
+        $data = array('id' => $_SESSION['botID'], 'task' => $command);
         //url-ify the data for the POST
         $data_string = http_build_query($data);
         //open connection
@@ -33,10 +40,6 @@ session_start();
         //execute post
         $result = curl_exec($ch);
         $info = curl_getinfo($ch);
-
-        echo $info['http_code'];
-        echo $result;
-
     }
     ?>
     <div class="flex justify-center m-5">

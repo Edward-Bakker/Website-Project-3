@@ -1,5 +1,6 @@
 <?php
 session_start();
+unset($_SESSION['botID']);
 ?>
 <!doctype html>
 <html lang="en">
@@ -33,7 +34,7 @@ session_start();
         $curl = curl_init();
         
         curl_setopt_array($curl, array(
-          CURLOPT_URL => "https://api.samklop.xyz/tasks",
+          CURLOPT_URL => "https://api.samklop.xyz/bots",
           CURLOPT_RETURNTRANSFER => true,
           CURLOPT_ENCODING => "",
           CURLOPT_MAXREDIRS => 10,
@@ -55,32 +56,56 @@ session_start();
         
         // do something with the data
         
-        // print_r($data) ;
+        
+
+        // foreach($data as $boties)
+        // {
+        //     foreach($boties as $bots)
+        //     {
+        //         foreach($bots as $bot)
+        //         {
+        //             echo "<pre>";
+        //             var_dump($bot['name']);
+        //             echo"</pre>";
+        //         }
+        //     }
+        // }
+        $batteryVoltage = 100;
         echo '<div class="flex justify-center flex-wrap">';
-        foreach($data as $row){
-            if(is_array($row))
+        foreach($data as $boties){
+            if(is_array($boties))
             {
-                foreach($row as $k){
-                    foreach($k as $y)
+                foreach($boties as $bots){
+                    foreach($bots as $bot)
                     {
                     echo'
                     <div class="flex-col w-96 m-5 p-4 bg-gray-600 rounded">
                         <div class="flex w-full justify-between mb-4">
-                            <h2 class="font-medium text-lg self-center truncate">Bot 1</h2>
-                            <a href="control.php" class="bg-green-500 hover:bg-green-700 rounded p-2">View</a>
+                            <h2 class="font-medium text-lg self-center truncate">' . $bot['name'] .'</h2>
+                            <a href="control.php?key='. key($bots) . '" class="bg-green-500 hover:bg-green-700 rounded p-2">View</a>
                         </div>
                         <div class="flex-col w-full">
                             <div class="flex justify-between my-1">
                                 <p class="self-center">Battery level</p>
-                                <p class="bg-green-500 rounded p-1">420%</p>
+                                '; 
+
+                                if ($batteryVoltage <= 10) {
+                                    echo '<p class="bg-red-500 rounded p-1">';
+                                } else if ($batteryVoltage <= 25) {
+                                    echo '<p class="bg-yellow-500 rounded p-1">';
+                                } else {
+                                    echo '<p class="bg-green-500 rounded p-1">';
+                                }
+                                echo $batteryVoltage . '%</p>';
+                                echo '
+
                             </div>
                             <div class="flex justify-between my-1">
                                 <p class="self-center">Current task</p>
-                                <p class="bg-gray-800 rounded p-1">'. $y . '</p>
+                                <p class="bg-gray-800 rounded p-1">'. $bot['task'] . '</p>
                             </div>
                         </div>
                     </div>';
-                
                     }
                 }
             }
@@ -89,7 +114,7 @@ session_start();
         } 
         echo '</div>';
         
-        }
+    }
         
         
         // function get_token_from_api() {
