@@ -58,6 +58,29 @@ $conn = mysqli_connect($config['host'], $config['user'], $config['password'], $c
                 </div>
                 <div class="flex bg-gray-600 w-px-500 m-5">
                     <h2 class="bg-gray-600 p-2 ">Stream</h2>
+    <?php
+    require_once('navbar.php');
+    ?>
+    <div class="flex justify-center p-2 m-5">
+
+            <iframe src="http://foscam.serverict.nl/videostream.cgi" title="Robolympics" width="480" height="480"></iframe>
+
+
+        <?php
+        // gets all data from camera control table for the request list
+        if ($conn === false) {
+            die("ERROR could not connect to database " . mysqli_connect_error());
+        }
+        if($stmt = $conn->prepare("SELECT * FROM camera_control ORDER BY requested_time ASC"))
+        {
+            $stmt->execute();
+
+            $results = $stmt->get_result();
+        }else
+        {
+            echo "could not execute";
+        }
+        ?>
                 </div>
             </div>
             <div class="flex flex-wrap lowerHalf justify-between h-2-4">
