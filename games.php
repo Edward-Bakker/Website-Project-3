@@ -504,6 +504,7 @@ arsort($points);
             </table>
         </div>
         <div class="text-center m-4 p-4 bg-gray-600 w-max rounded">
+        <h1 class="text-4xl font-bold">Game4</h1>
             <h1 class="text-4xl font-bold">
 				<?php
 					$result = mysqli_query($conn, "SELECT * FROM games WHERE game_id=4");
