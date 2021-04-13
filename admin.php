@@ -15,7 +15,7 @@ session_start();
     require_once('navbar.php');
     ?>
     <div class="flex justify-center">
-        <a href="adminteams.php" class="nav-button">Teams</a>
+        <a href="adminteams.php" class="nav-button">Overview</a>
         <a href="adminscores.php" class="nav-button">Scores</a>
         <a href="adminbots.php" class="nav-button">Battlebots</a>
         <a href="adminallusers.php" class="nav-button">All Users</a>

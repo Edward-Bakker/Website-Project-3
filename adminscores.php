@@ -29,7 +29,7 @@ $conn = mysqli_connect($config['host'], $config['user'], $config['password'], $c
     require_once('navbar.php');
     ?>
     <div class="flex justify-center">
-        <a href="adminteams.php" class="nav-button">Teams</a>
+        <a href="adminteams.php" class="nav-button">Overview</a>
         <a href="adminscores.php" class="nav-button">Scores</a>
         <a href="adminbots.php" class="nav-button">Battlebots</a>
         <a href="adminallusers.php" class="nav-button">All Users</a>
@@ -269,7 +269,7 @@ $conn = mysqli_connect($config['host'], $config['user'], $config['password'], $c
                 </tr>
                 <tr>
                     <form name="game1name" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-                        <input type="text" id="newNameGame1" name="newNameGame1" placeholder="Edit game name">
+                        <input type="text" id="newNameGame1" name="newNameGame1" placeholder="New name">
                         <input type="submit" name="submitGame1name" value="Edit name" class="submit">
                     </form>
                     <?php
@@ -523,7 +523,7 @@ $conn = mysqli_connect($config['host'], $config['user'], $config['password'], $c
                 </tr>
                 <tr>
                     <form name="game2name" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-                        <input type="text" id="newNameGame2" name="newNameGame2" placeholder="Edit game name">
+                        <input type="text" id="newNameGame2" name="newNameGame2" placeholder="New name">
                         <input type="submit" name="submitGame2name" value="Edit name" class="submit">
                     </form>
                     <?php
@@ -777,7 +777,7 @@ $conn = mysqli_connect($config['host'], $config['user'], $config['password'], $c
                 </tr>
                 <tr>
                     <form name="game3name" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-                        <input type="text" id="newNameGame3" name="newNameGame3" placeholder="Edit game name">
+                        <input type="text" id="newNameGame3" name="newNameGame3" placeholder="New name">
                         <input type="submit" name="submitGame3name" value="Edit name" class="submit">
                     </form>
                     <?php
@@ -1031,7 +1031,7 @@ $conn = mysqli_connect($config['host'], $config['user'], $config['password'], $c
                 </tr>
                 <tr>
                     <form name="game4name" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-                        <input type="text" id="newNameGame4" name="newNameGame4" placeholder="Edit game name">
+                        <input type="text" id="newNameGame4" name="newNameGame4" placeholder="New name">
                         <input type="submit" name="submitGame4name" value="Edit name" class="submit">
                     </form>
                     <?php

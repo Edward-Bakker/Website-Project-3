@@ -23,7 +23,7 @@ $conn = mysqli_connect($config['host'], $config['user'], $config['password'], $c
     require_once('navbar.php');
     ?>
     <div class="flex justify-center">
-        <a href="adminteams.php" class="nav-button">Teams</a>
+        <a href="adminteams.php" class="nav-button">Overview</a>
         <a href="adminscores.php" class="nav-button">Scores</a>
         <a href="adminbots.php" class="nav-button">Battlebots</a>
         <a href="adminallusers.php" class="nav-button">All Users</a>
@@ -39,7 +39,7 @@ $conn = mysqli_connect($config['host'], $config['user'], $config['password'], $c
                     <?php
                     $result = mysqli_query($conn, "SELECT * FROM robots WHERE team='A'");
                     while ($row = mysqli_fetch_array($result)) {
-                        $score = $row['game1_score'] + $row['game2_score'] + $row['game3_score'];
+                        $score = $row['game1_score'] + $row['game2_score'] + $row['game3_score']+ $row['game4_score'];
                         echo $score;
                     }
                     ?>
@@ -81,7 +81,7 @@ $conn = mysqli_connect($config['host'], $config['user'], $config['password'], $c
                     <?php
                     $result = mysqli_query($conn, "SELECT * FROM robots WHERE team='B'");
                     while ($row = mysqli_fetch_array($result)) {
-                        $score = $row['game1_score'] + $row['game2_score'] + $row['game3_score'];
+                        $score = $row['game1_score'] + $row['game2_score'] + $row['game3_score']+ $row['game3_score'];
                         echo $score;
                     }
                     ?>
@@ -123,7 +123,7 @@ $conn = mysqli_connect($config['host'], $config['user'], $config['password'], $c
                     <?php
                     $result = mysqli_query($conn, "SELECT * FROM robots WHERE team='C'");
                     while ($row = mysqli_fetch_array($result)) {
-                        $score = $row['game1_score'] + $row['game2_score'] + $row['game3_score'];
+                        $score = $row['game1_score'] + $row['game2_score'] + $row['game3_score']+ $row['game3_score'];
                         echo $score;
                     }
                     ?>
@@ -165,7 +165,7 @@ $conn = mysqli_connect($config['host'], $config['user'], $config['password'], $c
                     <?php
                     $result = mysqli_query($conn, "SELECT * FROM robots WHERE team='D'");
                     while ($row = mysqli_fetch_array($result)) {
-                        $score = $row['game1_score'] + $row['game2_score'] + $row['game3_score'];
+                        $score = $row['game1_score'] + $row['game2_score'] + $row['game3_score']+ $row['game3_score'];
                         echo $score;
                     }
                     ?>
@@ -207,7 +207,7 @@ $conn = mysqli_connect($config['host'], $config['user'], $config['password'], $c
                     <?php
                     $result = mysqli_query($conn, "SELECT * FROM robots WHERE team='E'");
                     while ($row = mysqli_fetch_array($result)) {
-                        $score = $row['game1_score'] + $row['game2_score'] + $row['game3_score'];
+                        $score = $row['game1_score'] + $row['game2_score'] + $row['game3_score']+ $row['game3_score'];
                         echo $score;
                     }
                     ?>
