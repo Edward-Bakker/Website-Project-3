@@ -370,7 +370,7 @@ input,
 select {
   padding: 0;
   line-height: inherit;
-  color: inherit;
+  width: 30%;
 }
 
 /**
@@ -951,4 +951,33 @@ img {
   .md\:w-full {
     width: 100%;
   }
+}
+
+#zeroButtonDiv {
+	display: flex;
+	justify-content: center;
+}
+
+#zeroButton {
+	width: 200px;
+	height: 35px;
+	color: black;
+	font-weight: bold;
+}
+
+.submit {
+	color: black;
+}
+
+#submitWhite {
+	color: white;
+	width: 100%;
+}
+
+.editName {
+	width: 100px;
+}
+
+#inputField {
+	width: 100%;
 }
