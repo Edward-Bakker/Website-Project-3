@@ -13,18 +13,31 @@
         $config = require_once('config.php');
         $conn = mysqli_connect($config['host'], $config['user'], $config['password'], $config['name']);
         $scores = [];
+        $game1Played = 0;
+        $game2Played = 0;
+        $game3Played = 0;
+        $games = ["game1"];
 
 
 
         $result = mysqli_query($conn, "SELECT *FROM robots");
         while ($row = mysqli_fetch_array($result)) {
+            $game1Played = $row["game1_score"] > 0 ? 1 : $game1Played; 
+            $game2Played = $row["game2_score"] > 0 ? 1 : $game2Played; 
+            $game3Played = $row["game3_score"] > 0 ? 1 : $game3Played; 
             $score = $row['game1_score'] + $row['game2_score'] + $row['game3_score'];
             $scores[$row['team']] = $score;
         }
         arsort($scores, 1);
+
+
+        
+        $completedGames = $game1Played + $game2Played + $game3Played;
     ?>
 
     <body class="text-white">
+        <canvas id="canvas"></canvas>
+        <div id="fireworkButton" class="yellow">:)</div>
         <h1 class="text-center text-4xl m-5 title">Project Battlebot - Group D</h1>
         <?php
         require_once('navbar.php');
@@ -88,17 +101,13 @@
                         <div class="bg-gray-600 myBar" id="myBar1">0%</div>
                     </div>
                     <div class="gameStats flex">
-                        <div id="bestPlacement" class="gameStatCard flex">
-                            <img src="groupDImg/bestPlace1.png" alt="Indicates played games" class="statsImage">
-                            <div class="flex flex-col statText"> Best Placement</div> 
-                        </div>
                         <div id="currentPlacement" class="gameStatCard flex">
                             <img src="groupDImg/bestPlace1.png" alt="Indicates played games" class="statsImage">
-                            <div class="flex flex-col statText"> Current Placement</div> 
+                        <div class="flex flex-col statText"> Current Placement: <?php echo $ids[array_search("D", array_keys($scores))] ?> </div> 
                         </div>
                         <div id="gamesCompleted" class="gameStatCard flex">
-                            <img src="groupDImg/1.png" alt="Indicates played games" class="statsImage">
-                            <div class="flex flex-col statText"> Games Played</div> 
+                            <img src="groupDImg/<?php echo $completedGames?>.png" alt="Indicates played games" class="statsImage">
+                            <div class="flex flex-col statText"><?php echo $completedGames?> Games Played</div> 
                         </div>
                         
                     </div>
@@ -133,6 +142,7 @@
 //            var_dump($_SESSION["timer"]);
  
             ?>
+        <script src="fireworks.js"></script>
         <script>
                 var i = 0;
                 if (sessionStorage.getItem("timer") <= 1)

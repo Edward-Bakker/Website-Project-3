@@ -219,11 +219,12 @@ body{
     height: 70px;   
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .gameStatCard{
     height: 45px;
-    width: 30%;
+    width: 45%;
     display: flex;
     align-items: center;
 }
@@ -234,8 +235,7 @@ body{
 
 .statsImage{
     height: 40px;
-    width: auto;
-    padding-right: 3px;     
+    width: auto;    
 }
 
 @media (max-width: 1350px) {
@@ -253,4 +253,27 @@ body{
         justify-content: center;
     }
     
+}
+
+/* firework animation */
+
+canvas{
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: -1;
+}
+
+#fireworkButton{
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    cursor: pointer;
+    padding: 9px;
+    border-radius: 40px;
+    width: 60px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
