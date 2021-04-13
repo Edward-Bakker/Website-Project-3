@@ -58,10 +58,10 @@ session_start();
 
             </div>
             <form class="flex flex-col bg-gray-600 p-2 rounded m-5" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
-                <input class="mb-2 p-1 rounded" type="password" name="password" placeholder="Password">
-                <input class="mb-2 p-1 rounded" type="password" name="verifyPassword" placeholder="Verify Password">
-                <input class="mb-2 p-1 rounded" type="password" name="oldPassword" placeholder="Old Password">
-                <input class="bg-gray-800 p-2 rounded" name="update" type="submit" value="Update">
+                <input class="mb-2 p-1 rounded" type="password" name="password" placeholder="Password" id="inputField">
+                <input class="mb-2 p-1 rounded" type="password" name="verifyPassword" placeholder="Verify Password" id="inputField">
+                <input class="mb-2 p-1 rounded" type="password" name="oldPassword" placeholder="Old Password" id="inputField">
+                <input class="bg-gray-800 p-2 rounded" name="update" type="submit" value="Update" id="submitWhite">
             </form>
         </div>
         <?php
