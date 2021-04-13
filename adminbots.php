@@ -59,12 +59,11 @@ $conn = mysqli_connect($config['host'], $config['user'], $config['password'], $c
                             or die(mysqli_error($conn));
 
                         mysqli_stmt_close($stmt);
-                        header("Location: " . $_SERVER['PHP_SELF']);
                     }
                     ?>
                     <form name="setBotA" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                         <input type="text" id="newNameA" name="newNameA">
-                        <input type="submit" name="submitBotA" value="Edit bot name">
+                        <input type="submit" name="submitBotA" value="Edit bot name" class="editName">
                     </form>
                 </h3>
             </div>
@@ -101,12 +100,11 @@ $conn = mysqli_connect($config['host'], $config['user'], $config['password'], $c
                             or die(mysqli_error($conn));
 
                         mysqli_stmt_close($stmt);
-                        header("Location: " . $_SERVER['PHP_SELF']);
                     }
                     ?>
                     <form name="setBotB" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                         <input type="text" id="newNameB" name="newNameB">
-                        <input type="submit" name="submitBotB" value="Edit bot name">
+                        <input type="submit" name="submitBotB" value="Edit bot name" class="editName">
                     </form>
                 </h3>
             </div>
@@ -143,12 +141,11 @@ $conn = mysqli_connect($config['host'], $config['user'], $config['password'], $c
                             or die(mysqli_error($conn));
 
                         mysqli_stmt_close($stmt);
-                        header("Location: " . $_SERVER['PHP_SELF']);
                     }
                     ?>
                     <form name="setBotC" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                         <input type="text" id="newNameC" name="newNameC">
-                        <input type="submit" name="submitBotC" value="Edit bot name">
+                        <input type="submit" name="submitBotC" value="Edit bot name" class="editName">
                     </form>
                 </h3>
             </div>
@@ -185,12 +182,11 @@ $conn = mysqli_connect($config['host'], $config['user'], $config['password'], $c
                             or die(mysqli_error($conn));
 
                         mysqli_stmt_close($stmt);
-                        header("Location: " . $_SERVER['PHP_SELF']);
                     }
                     ?>
                     <form name="setBotD" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                         <input type="text" id="newNameD" name="newNameD">
-                        <input type="submit" name="submitBotD" value="Edit bot name">
+                        <input type="submit" name="submitBotD" value="Edit bot name" class="editName">
                     </form>
                 </h3>
             </div>
@@ -231,7 +227,7 @@ $conn = mysqli_connect($config['host'], $config['user'], $config['password'], $c
                     ?>
                     <form name="setBotE" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                         <input type="text" id="newNameE" name="newNameE">
-                        <input type="submit" name="submitBotE" value="Edit bot name">
+                        <input type="submit" name="submitBotE" value="Edit bot name" class="editName">
                     </form>
                 </h3>
             </div>

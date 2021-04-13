@@ -19,9 +19,9 @@ session_start();
     ?>
     <div class="flex justify-center">
         <form class="flex flex-col bg-gray-600 p-2 rounded m-5" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
-            <input class="mb-2 p-1 rounded" type="email" name="email" placeholder="Email">
-            <input class="mb-2 p-1 rounded" type="password" name="password" placeholder="Password">
-            <input class="bg-gray-800 p-2 rounded" type="submit" name="submit" value="Login">
+            <input class="mb-2 p-1 rounded" type="email" name="email" placeholder="Email" id="inputField">
+            <input class="mb-2 p-1 rounded" type="password" name="password" placeholder="Password" id="inputField">
+            <input class="bg-gray-800 p-2 rounded" type="submit" name="submit" value="Login" id="submitWhite">
         </form>
     </div>
 </body>
