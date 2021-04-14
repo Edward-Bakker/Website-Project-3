@@ -78,21 +78,25 @@
                 <div class="flex flex-wrap p-4 justify-center">
                     <div class="flex flex-col border-4 border-solid border-gray-600 my-1 mx-3 p-4 justify-center">
                         <div class="rounded-full w-px-100 h-px-100 bg-gray-600"></div>
+                        <div class="icons" id="tictactoe"></div>
                         <p class="my-2 text-gray-600">Relay</p>
                         <button class="bg-gray-600 rounded-full px-6 py-2">Start</button>
                     </div>
                     <div class="flex flex-col border-4 border-solid border-gray-600 my-1 mx-3 p-4 justify-center">
                         <div class="rounded-full w-px-100 h-px-100 bg-gray-600"></div>
+                        <div class="icons" id="tictactoe"></div>
                         <p class="my-2 text-gray-600">Tic-Tac-Toe</p>
                         <button class="bg-gray-600 rounded-full px-6 py-2">Start</button>
                     </div>
                     <div class="flex flex-col border-4 border-solid border-gray-600 my-1 mx-3 p-4 justify-center">
                         <div class="rounded-full w-px-100 h-px-100 bg-gray-600"></div>
+                        <div class="icons" id="shapeDraw"></div>
                         <p class="my-2 text-gray-600">Shape Draw</p>
                         <button class="bg-gray-600 rounded-full px-6 py-2">Start</button>
                     </div>
                     <div class="flex flex-col border-4 border-solid border-gray-600 my-1 mx-3 p-4 justify-center">
                         <div class="rounded-full w-px-100 h-px-100 bg-gray-600"></div>
+                        <div class="icons" id="maze"></div>
                         <p class="my-2 text-gray-600">Maze</p>
                         <button class="bg-gray-600 rounded-full px-6 py-2">Start</button>
                     </div>

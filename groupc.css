@@ -153,6 +153,27 @@ body{
 	transform: scale(1.5);
 }
 
+.icons{
+    height: 120px;
+    width: 120px;
+}
+
+#relay{
+    background-image: url("groupCImg/flag.svg");
+  }
+
+  #tictactoe{
+    background-image: url("groupCImg/tictactoe.svg");
+  }
+
+  #shapeDraw{
+    background-image: url("groupCImg/shape.svg");
+  }
+
+  #maze{
+    background-image: url("groupCImg/maze.svg");
+  }
+
 @media (max-width: 1350px) {
     .wrapper {
       width: 90%;
