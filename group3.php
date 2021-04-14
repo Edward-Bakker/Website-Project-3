@@ -10,56 +10,56 @@
     </head>
  
     <body class="bg-gray-800 text-white">
-        <h1 class="text-center text-4xl m-5">DOOMBOT-Group C</h1>
+        <h1 class="text-center text-4xl m-5">DOOMBOT</h1>
         <?php
         require_once('navbar.php');
         ?>
-		
-	<section id="testimonials">
-	<div id="testimonial-carousel" class="carousel slide" data-ride="false">
-		<div class="carousel-inner">
-			<div class="carousel-item active">
-				<img class="carousel-image" src="groupCImg/carouselImg/Introduction.svg">
-			</div>
-			<div class="carousel-item">
-				<img class="carousel-image" src="groupCImg/carouselImg/RelayRace.svg">
-				</div>
-			<div class="carousel-item">
-				<img class="carousel-image" src="groupCimg/carouselImg/Tic-Tac-Toe.svg">
-			</div>
-			<div class="carousel-item">
-			<img class="carousel-img" src="groupCImg/carouselImg/ShapeDraw.svg">
-			</div>
-			<div class="carousel-item">
-				<img class="carousel-imgage" src="groupCImg/carouselImg/Maze.svg">
-			</div>
-			<div class="carousel-item">
-				<img class="carousel-imgage" src="groupCImg/carouselImg/Sean.png">
-			</div>
-			<div class="carousel-item">
-				<img class="carousel-imgage" src="groupCImg/carouselImg/Josta.png">
-			</div>
-			<div class="carousel-item">
-				<img class="carousel-imgage" src="groupCImg/carouselImg/Keanu.png">
-			</div>
-			<div class="carousel-item">
-				<img class="carousel-imgage" src="groupCImg/carouselImg/Stefan.png">
-			</div>
-			<div class="carousel-item">
-				<img class="carousel-imgage" src="groupCImg/carouselImg/Vasil.png">
-			</div>
-			<div class="masterpiece carousel-item">
-				<img class="carousel-imgage" src="groupCImg/carouselImg/Masterpiece.png">
-			</div>
-		</div>
-		<a class="carousel-control-prev" href="#testimonial-carousel" role="button" data-slide="prev">
-		<span class="carousel-control-prev-icon"></span>
-		</a>
-		<a class="carousel-control-next" href="#testimonial-carousel" role="button" data-slide="next">
-			<span class="carousel-control-next-icon"></span>
-		</a>
-	</div>
-	</section>
+        
+    <section id="testimonials">
+    <div id="testimonial-carousel" class="carousel slide" data-ride="false">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="carousel-image" src="groupCImg/carouselImg/Introduction.svg">
+            </div>
+            <div class="carousel-item">
+                <img class="carousel-image" src="groupCImg/carouselImg/RelayRace.svg">
+                </div>
+            <div class="carousel-item">
+                <img class="carousel-image" src="groupCimg/carouselImg/Tic-Tac-Toe.svg">
+            </div>
+            <div class="carousel-item">
+            <img class="carousel-img" src="groupCImg/carouselImg/ShapeDraw.svg">
+            </div>
+            <div class="carousel-item">
+                <img class="carousel-imgage" src="groupCImg/carouselImg/maze.svg">
+            </div>
+            <div class="carousel-item">
+                <img class="carousel-imgage" src="groupCImg/carouselImg/Sean.png">
+            </div>
+            <div class="carousel-item">
+                <img class="carousel-imgage" src="groupCImg/carouselImg/Josta.png">
+            </div>
+            <div class="carousel-item">
+                <img class="carousel-imgage" src="groupCImg/carouselImg/Keanu.png">
+            </div>
+            <div class="carousel-item">
+                <img class="carousel-imgage" src="groupCImg/carouselImg/Stefan.png">
+            </div>
+            <div class="carousel-item">
+                <img class="carousel-imgage" src="groupCImg/carouselImg/Vasil.png">
+            </div>
+            <div class="masterpiece carousel-item">
+                <img class="carousel-imgage" src="groupCImg/carouselImg/Masterpiece.png">
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#testimonial-carousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#testimonial-carousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+    </section>
         <div class="flex flex-col flex-grow wrapper">
             <div class="flex flex-wrap upperHalf justify-between h-2-4">
                 <div class="flex flex-col border-b-4 border-l-4 border-r-4 border-solid border-gray-600 bg-gray-400 w-px-500 m-5">
@@ -78,25 +78,21 @@
                 <div class="flex flex-wrap p-4 justify-center">
                     <div class="flex flex-col border-4 border-solid border-gray-600 my-1 mx-3 p-4 justify-center">
                         <div class="rounded-full w-px-100 h-px-100 bg-gray-600"></div>
-                        <div class="icons" id="tictactoe"></div>
                         <p class="my-2 text-gray-600">Relay</p>
                         <button class="bg-gray-600 rounded-full px-6 py-2">Start</button>
                     </div>
                     <div class="flex flex-col border-4 border-solid border-gray-600 my-1 mx-3 p-4 justify-center">
                         <div class="rounded-full w-px-100 h-px-100 bg-gray-600"></div>
-                        <div class="icons" id="tictactoe"></div>
                         <p class="my-2 text-gray-600">Tic-Tac-Toe</p>
                         <button class="bg-gray-600 rounded-full px-6 py-2">Start</button>
                     </div>
                     <div class="flex flex-col border-4 border-solid border-gray-600 my-1 mx-3 p-4 justify-center">
                         <div class="rounded-full w-px-100 h-px-100 bg-gray-600"></div>
-                        <div class="icons" id="shapeDraw"></div>
                         <p class="my-2 text-gray-600">Shape Draw</p>
                         <button class="bg-gray-600 rounded-full px-6 py-2">Start</button>
                     </div>
                     <div class="flex flex-col border-4 border-solid border-gray-600 my-1 mx-3 p-4 justify-center">
                         <div class="rounded-full w-px-100 h-px-100 bg-gray-600"></div>
-                        <div class="icons" id="maze"></div>
                         <p class="my-2 text-gray-600">Maze</p>
                         <button class="bg-gray-600 rounded-full px-6 py-2">Start</button>
                     </div>
