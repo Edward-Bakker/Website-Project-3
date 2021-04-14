@@ -19,7 +19,7 @@ $conn = mysqli_connect($config['host'], $config['user'], $config['password'], $c
 
 <body class="text-white bg">
 <div class="transparent"> </div>
-<video class= "video" src="/media/groupB.mp4" muted loop autoplay></video>
+<video class= "video" src="media/groupB.mp4" muted loop autoplay></video>
     <?php
     require_once('navbar.php');
     ?>
