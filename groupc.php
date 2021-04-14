@@ -8,7 +8,14 @@
         <link href="css/styles.css" rel="stylesheet" type="text/css">
         <link href="groupc.css" rel="stylesheet" type="text/css">
     </head>
-    <section id="testimonials">
+ 
+    <body class="bg-gray-800 text-white">
+        <h1 class="text-center text-4xl m-5">DOOMBOT-Group C</h1>
+        <?php
+        require_once('navbar.php');
+        ?>
+		
+	<section id="testimonials">
 
     
 
@@ -64,11 +71,6 @@
 </div>
 
 </section>
-    <body class="bg-gray-800 text-white">
-        <h1 class="text-center text-4xl m-5">DOOMBOT-Group C</h1>
-        <?php
-        require_once('navbar.php');
-        ?>
         <div class="flex flex-col flex-grow wrapper">
             <div class="flex flex-wrap upperHalf justify-between h-2-4">
                 <div class="flex flex-col border-b-4 border-l-4 border-r-4 border-solid border-gray-600 bg-gray-400 w-px-500 m-5">
@@ -87,22 +89,22 @@
                 <div class="flex flex-wrap p-4 justify-center">
                     <div class="flex flex-col border-4 border-solid border-gray-600 my-1 mx-3 p-4 justify-center">
                         <div class="rounded-full w-px-100 h-px-100 bg-gray-600"></div>
-                        <p class="my-2 text-gray-600">Lorem Ipsum</p>
+                        <p class="my-2 text-gray-600">Relay</p>
                         <button class="bg-gray-600 rounded-full px-6 py-2">Start</button>
                     </div>
                     <div class="flex flex-col border-4 border-solid border-gray-600 my-1 mx-3 p-4 justify-center">
                         <div class="rounded-full w-px-100 h-px-100 bg-gray-600"></div>
-                        <p class="my-2 text-gray-600">Lorem Ipsum</p>
+                        <p class="my-2 text-gray-600">Tic-Tac-Toe</p>
                         <button class="bg-gray-600 rounded-full px-6 py-2">Start</button>
                     </div>
                     <div class="flex flex-col border-4 border-solid border-gray-600 my-1 mx-3 p-4 justify-center">
                         <div class="rounded-full w-px-100 h-px-100 bg-gray-600"></div>
-                        <p class="my-2 text-gray-600">Lorem Ipsum</p>
+                        <p class="my-2 text-gray-600">Shape Draw</p>
                         <button class="bg-gray-600 rounded-full px-6 py-2">Start</button>
                     </div>
                     <div class="flex flex-col border-4 border-solid border-gray-600 my-1 mx-3 p-4 justify-center">
                         <div class="rounded-full w-px-100 h-px-100 bg-gray-600"></div>
-                        <p class="my-2 text-gray-600">Lorem Ipsum</p>
+                        <p class="my-2 text-gray-600">Maze</p>
                         <button class="bg-gray-600 rounded-full px-6 py-2">Start</button>
                     </div>
                 </div>
