@@ -148,7 +148,7 @@ if (isset($_GET["key"])) {
             <div class="bg-gray-600 p-2 rounded">
                 <img src="inc/arduino.jpg" alt="Livestream">
             </div>
-            <form class="bg-gray-600 p-2 rounded m-2 text-center">
+            <form class="bg-gray-600 p-2 rounded m-2 text-center" action=<?php echo$_SERVER['PHP_SELF']?> method="get">
                 <select name="command" class="bg-gray-800 p-2 rounded">
                     <?php
                     $the_key = "race"; // or whatever you want
