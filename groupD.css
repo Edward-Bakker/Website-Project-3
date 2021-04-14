@@ -157,6 +157,12 @@ body{
       background-color: #e2bf41;
   }
 
+  .yellowFont{
+    color: #e2bf41;
+    text-align:center;
+    width: 100%;
+  }
+
   .icons{
       height: 120px;
       width: 120px;
@@ -231,6 +237,7 @@ body{
 .statText{
     font-size: small;
     font-weight: bold;
+    margin-left: 6px;
 }
 
 .statsImage{
