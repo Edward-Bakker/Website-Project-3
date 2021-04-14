@@ -230,6 +230,11 @@ button {
     background-color: #17B3B4;
 }
 
+.sound_btn {
+    width: 100%;
+    background-color: #17B3B4;
+}
+
 .video {
     position: absolute;
     z-index: -2;

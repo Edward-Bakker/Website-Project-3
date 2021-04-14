@@ -129,354 +129,397 @@ $conn = mysqli_connect($config['host'], $config['user'], $config['password'], $c
 
                     </div>
                 </form>
-                <div class="flex flex-col progressBars p-4">
-                    <a href="">
-                        <div class="bg-gray-600 w-full h-10 max-h-10 rounded">
-                            <p class="text-white text-center ">Enable Sound
-                            </p>
-                        </div>
-                    </a>
-                    <p>Battery
+                <!--        this enables the sound :D although it has no value anywhere-->
+                <form action="" method="post">
 
-                    </p>
-                    <div class="h-full bg-gray-600 myBar" id="myBar1"></div>
+                    <br>
+                    <br>
+                    <input type=submit class="sound_btn"name="s" value="Enable sound">
+                </form>
+
+                <div id="myProgress">
+                    <div id="myBar">0%</div>
                 </div>
 
-                <p>
+                <!--            sound sources-->
+                <audio id="start">
+                    <source src="sound/Acceleration.mp3" type="audio/mpeg">
+                </audio>
+                <audio id="speed1">
+                    <source src="sound/SpeedDrifting.mp3" type="audio/mpeg">
+                </audio>
+                <audio id="speed2">
+                    <source src="sound/Speed2.mp3" type="audio/mpeg">
+                </audio>
+                <audio id="speed3">
+                    <source src="sound/Speed3.mp3" type="audio/mpeg">
+                </audio>
+                <audio id="speed4">
+                    <source src="sound/Speed4.mp3" type="audio/mpeg">
+                </audio>
 
-                <div class="h-full bg-gray-600 myBar" id="myBar2"></div>
-            </div>
-
-
-
-            <div class="h-full bg-gray-600 myBar" id="myBar3"></div>
-        </div>
-    </div>
-    </div>
-    </div>
-    <audio id="start">
-        <source src="sound/Acceleration.mp3" type="audio/mpeg">
-    </audio>
-    <audio id="speed1">
-        <source src="sound/Speed1.mp3" type="audio/mpeg">
-    </audio>
-    <audio id="speed2">
-        <source src="sound/Speed2.mp3" type="audio/mpeg">
-    </audio>
-    <audio id="speed3">
-        <source src="sound/Speed3.mp3" type="audio/mpeg">
-    </audio>
-    <audio id="speed4">
-        <source src="sound/Speed4.mp3" type="audio/mpeg">
-    </audio>
-
-    <?php
-
-    $sound = 20;
-    $sped = 150;
-
-    if (isset($_GET["backward"])) {
-        $command = $_GET["backward"];
-        //The url you wish to send the POST request to (change url)
-        $url = "https://api.samklop.xyz/settask";
-        //The data you want to send via POST look at manual of api
-        $data = array('id' => '2', 'task' => $command);
-        //url-ify the data for the POST
-        $data_string = http_build_query($data);
-        //open connection
-        $ch = curl_init();
-        //set the url, number of POST vars, POST data
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
-        //So that curl_exec returns the contents of the cURL; rather than echoing it
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        //execute post
-        $result = curl_exec($ch);
-        $info = curl_getinfo($ch);
-    }
-
-    if (isset($_GET["stopMotor"])) {
-        $command = $_GET["stopMotor"];
-        //The url you wish to send the POST request to (change url)
-        $url = "https://api.samklop.xyz/settask";
-        //The data you want to send via POST look at manual of api
-        $data = array('id' => '2', 'task' => $command);
-        //url-ify the data for the POST
-        $data_string = http_build_query($data);
-        //open connection
-        $ch = curl_init();
-        //set the url, number of POST vars, POST data
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
-        //So that curl_exec returns the contents of the cURL; rather than echoing it
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        //execute post
-        $result = curl_exec($ch);
-        $info = curl_getinfo($ch);
-    }
-
-    if (isset($_GET["right"])) {
-        $command = $_GET["right"];
-        //The url you wish to send the POST request to (change url)
-        $url = "https://api.samklop.xyz/settask";
-        //The data you want to send via POST look at manual of api
-        $data = array('id' => '2', 'task' => $command);
-        //url-ify the data for the POST
-        $data_string = http_build_query($data);
-        //open connection
-        $ch = curl_init();
-        //set the url, number of POST vars, POST data
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
-        //So that curl_exec returns the contents of the cURL; rather than echoing it
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        //execute post
-        $result = curl_exec($ch);
-        $info = curl_getinfo($ch);
-    }
-
-    if (isset($_GET["left"])) {
-        $command = $_GET["left"];
-        //The url you wish to send the POST request to (change url)
-        $url = "https://api.samklop.xyz/settask";
-        //The data you want to send via POST look at manual of api
-        $data = array('id' => '2', 'task' => $command);
-        //url-ify the data for the POST
-        $data_string = http_build_query($data);
-        //open connection
-        $ch = curl_init();
-        //set the url, number of POST vars, POST data
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
-        //So that curl_exec returns the contents of the cURL; rather than echoing it
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        //execute post
-        $result = curl_exec($ch);
-        $info = curl_getinfo($ch);
-    }
-
-    if (isset($_GET["forward"])) {
-        $command = $_GET["forward"];
-        //The url you wish to send the POST request to (change url)
-        $url = "https://api.samklop.xyz/settask";
-        //The data you want to send via POST look at manual of api
-        $data = array('id' => '2', 'task' => $command);
-        //url-ify the data for the POST
-        $data_string = http_build_query($data);
-        //open connection
-        $ch = curl_init();
-        //set the url, number of POST vars, POST data
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
-        //So that curl_exec returns the contents of the cURL; rather than echoing it
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        //execute post
-        $result = curl_exec($ch);
-        $info = curl_getinfo($ch);
-    }
-
-    if (isset($_GET["Race"])) {
-        $command = $_GET["Race"];
-        //The url you wish to send the POST request to (change url)
-        $url = "https://api.samklop.xyz/settask";
-        //The data you want to send via POST look at manual of api
-        $data = array('id' => '2', 'task' => $command);
-        //url-ify the data for the POST
-        $data_string = http_build_query($data);
-        //open connection
-        $ch = curl_init();
-        //set the url, number of POST vars, POST data
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
-        //So that curl_exec returns the contents of the cURL; rather than echoing it
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        //execute post
-        $result = curl_exec($ch);
-        $info = curl_getinfo($ch);
-    }
-    if (isset($_GET["Tiktaktoe"])) {
-        $command = $_GET["Tiktaktoe"];
-        //The url you wish to send the POST request to (change url)
-        $url = "https://api.samklop.xyz/settask";
-        //The data you want to send via POST look at manual of api
-        $data = array('id' => '2', 'task' => $command);
-        //url-ify the data for the POST
-        $data_string = http_build_query($data);
-        //open connection
-        $ch = curl_init();
-        //set the url, number of POST vars, POST data
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
-        //So that curl_exec returns the contents of the cURL; rather than echoing it
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        //execute post
-        $result = curl_exec($ch);
-        $info = curl_getinfo($ch);
-    }
-    if (isset($_GET["ShapeRedraw"])) {
-        $command = $_GET["ShapeRedraw"];
-        //The url you wish to send the POST request to (change url)
-        $url = "https://api.samklop.xyz/settask";
-        //The data you want to send via POST look at manual of api
-        $data = array('id' => '2', 'task' => $command);
-        //url-ify the data for the POST
-        $data_string = http_build_query($data);
-        //open connection
-        $ch = curl_init();
-        //set the url, number of POST vars, POST data
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
-        //So that curl_exec returns the contents of the cURL; rather than echoing it
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        //execute post
-        $result = curl_exec($ch);
-        $info = curl_getinfo($ch);
-    }
-    if (isset($_GET["Maze"])) {
-        $command = $_GET["Maze"];
-        //The url you wish to send the POST request to (change url)
-        $url = "https://api.samklop.xyz/settask";
-        //The data you want to send via POST look at manual of api
-        $data = array('id' => '2', 'task' => $command);
-        //url-ify the data for the POST
-        $data_string = http_build_query($data);
-        //open connection
-        $ch = curl_init();
-        //set the url, number of POST vars, POST data
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
-        //So that curl_exec returns the contents of the cURL; rather than echoing it
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        //execute post
-        $result = curl_exec($ch);
-        $info = curl_getinfo($ch);
-    }
-
-    ?>
-
-    <script>
-        var i = 0;
-        // the battery starts again if it hits 0
-        if (sessionStorage.getItem("timer") <= 1) {
-            sessionStorage.setItem("timer", "100");
-        }
-        if (i == 0) {
-            i = 1;
-            var Start = document.getElementById("start");
-            var Speed1 = document.getElementById("speed1");
-            var Speed2 = document.getElementById("speed2");
-            var Speed3 = document.getElementById("speed3");
-            var Speed4 = document.getElementById("speed4");
-
-            function playAudioStart() {
-                Start.play();
-            }
-
-            function playAudioSpeed1() {
-                Speed1.play();
-            }
-
-            function playAudioSpeed2() {
-                Speed2.play();
-            }
-
-            function playAudioSpeed3() {
-                Speed3.play();
-            }
-
-            function playAudioSpeed4() {
-                Speed4.play();
-            }
+                <?php
 
 
-            var timer2 = sessionStorage.getItem("timer");
-            var timer = parseInt(timer2);
-
-            function Taimer() {
-                // this is the time removal for the battery
-                timer = timer - 1;
-                var x = timer;
-                x.toString();
-                sessionStorage.setItem("timer", x)
-                document.getElementById("myBar1").innerHTML = timer + "%";
-                document.getElementById("myBar1").style.width = timer + "%";
-
-            }
-
-            Taimer();
-            var myVar = setInterval(Taimer, 2000);
 
 
-            //this changes the speed bar up/down
-            var elem = document.getElementById("myBar");
-            var id = setInterval(myFunction, 20);
-            var sound = "<?php echo ($sound); ?>";
-            sound.toString();
-            sessionStorage.setItem("sound", sound)
+                //  require_once('navbar.php');
+                //making connection with the API 
 
-            function myFunction() {
-                if (sound >= sound2) {
-                    // it goes up
-                    sound++;
-                    elem.style.width = sound + "%";
-                    elem.innerHTML = sound + "%";
-                    var sound2 = sound;
-                    sound2.toString();
-                    sessionStorage.setItem("sound2", sound2)
-                } else {
-                    // goes down
-                    document.getElementById("myBar").innerHTML = sound + "%";
-                    document.getElementById("myBar").style.width = sound + "%";
+
+
+                $curl = curl_init();
+
+                curl_setopt_array($curl, array(
+                    CURLOPT_URL => "https://api.samklop.xyz/bots",
+                    CURLOPT_RETURNTRANSFER => true,
+                    CURLOPT_ENCODING => "",
+                    CURLOPT_MAXREDIRS => 10,
+                    CURLOPT_TIMEOUT => 30,
+                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                    CURLOPT_CUSTOMREQUEST => "GET",
+                    CURLOPT_POSTFIELDS => "",
+
+                ));
+
+                $response = curl_exec($curl);
+                $err = curl_error($curl);
+                echo "<pre>";
+                echo "</pre>";
+                $data = json_decode($response, true);
+                //getting data for robot 2 (B)
+                foreach ($data as $bots) {
+                    if (is_array($bots)) {
+                        $sped = $bots[1][2]["data"];
+                        $sound = $bots[1][2]["data"];
+                        // checking if its int data
+                        if (is_numeric($sped) && is_numeric($sound)) {
+                            $sped = $bots[1][2]["data"];
+                            $sound = $bots[1][2]["data"];
+                            $_SESSION['Speed2'] = $sped;
+                        } else {
+                            $sped = $_SESSION['Speed2'];
+                            $sound = $_SESSION['Speed2'];
+                        }
+                    }
+                }
+                // test if the functions work with those 2 values
+                // comment them afterwards
+                      //$sped = 40;
+                      //$sound = 80;
+
+
+                ?>
+
+                <script>
+                    var i = 0;
+
+                    //            // the battery starts again if it hits 0
+                    //            if (sessionStorage.getItem("timer") <= 1)
+                    //            {
+                    //                sessionStorage.setItem("timer", "100");
+                    //            }
+                    if (i == 0) {
+                        i = 1;
+                        // variables for the sound
+                        var Start = document.getElementById("start");
+                        var Speed1 = document.getElementById("speed1");
+                        var Speed2 = document.getElementById("speed2");
+                        var Speed3 = document.getElementById("speed3");
+                        var Speed4 = document.getElementById("speed4");
+                        // functions for sound
+                        function playAudioStart() {
+                            Start.play();
+                        }
+
+                        function playAudioSpeed1() {
+                            Speed1.play();
+                        }
+
+                        function playAudioSpeed2() {
+                            Speed2.play();
+                        }
+
+                        function playAudioSpeed3() {
+                            Speed3.play();
+                        }
+
+                        function playAudioSpeed4() {
+                            Speed4.play();
+                        }
+
+                        // THIS FUNCTION IS THE BATTERY FEATURE
+                        // THIS FUNCTION DOES NOT WORK PROPERLY
+
+                        //                var timer2 = localStorage.getItem("seconds");
+                        //                var timer = parseInt(timer2);
+                        //
+                        //                function Taimer() {
+                        //                    // this is the time removal for the battery
+                        //                    timer = timer - 1;
+                        //                    var x = localStorage.getItem("timer");;
+                        //                    x.toString();
+                        //                    sessionStorage.setItem("timer", x)
+                        //                    document.getElementById("myBar1").innerHTML = timer + "%";
+                        //                    document.getElementById("myBar1").style.width = timer + "%";
+                        //
+                        //                }
+                        //
+                        //                Taimer();
+                        //                var time = setInterval(Taimer, 5000);
+
+                        //this changes the speed bar up/down
+                        var elem = document.getElementById("myBar");
+                        var id = setInterval(myFunction, 20);
+                        var sound = "<?php echo ($sound); ?>";
+                        sound.toString();
+                        sessionStorage.setItem("sound", sound);
+
+                        function myFunction() {
+                            if (sound >= sound2) {
+                                // it goes up
+                                sound2++;
+                                elem.style.width = sound2 + "%";
+                                elem.innerHTML = sound2 + "%";
+
+                            } else {
+                                // goes down
+                                document.getElementById("myBar").innerHTML = sound + "%";
+                                document.getElementById("myBar").style.width = sound + "%";
+                            }
+                            var sound2 = sound;
+                            sound2.toString();
+                            sessionStorage.setItem("sound2", sound2)
+
+                        }
+
+                    }
+
+
+
+
+                    // reloads the page every 10 seconds
+                    var timeout = setTimeout("location.reload(true);", 10000);
+
+                    //updates the div for music
+                    function AudioReload() {
+                        $("#here").load(window.location.href + " #here");
+                    }
+
+                    var Audio = setInterval(AudioReload, 3000);
+                </script>
+                <div id="here">
+                    <?php
+                    // the music conditions
+
+
+
+                    if ($sped <= 10) {
+                        echo "<script> playAudioStart(); </script>";
+                    } else if ($sped > 10 && $sped < 20) {
+                        echo "<script> playAudioSpeed1(); </script>";
+                    } else if ($sped >= 20 && $sped <= 40) {
+                        echo "<script> playAudioSpeed2(); </script>";
+                    } else if ($sped > 40 && $sped <= 70) {
+                        echo "<script> playAudioSpeed3(); </script>";
+                    } else if ($sped > 70 && $sped <= 100) {
+                        echo "<script> playAudioSpeed4(); </script>";
+                    }
+
+                    ?>
+
+                </div>
+
+                <?php
+
+                if (isset($_GET["backward"])) {
+                    $command = $_GET["backward"];
+                    //The url you wish to send the POST request to (change url)
+                    $url = "https://api.samklop.xyz/settask";
+                    //The data you want to send via POST look at manual of api
+                    $data = array('id' => '2', 'task' => $command);
+                    //url-ify the data for the POST
+                    $data_string = http_build_query($data);
+                    //open connection
+                    $ch = curl_init();
+                    //set the url, number of POST vars, POST data
+                    curl_setopt($ch, CURLOPT_URL, $url);
+                    curl_setopt($ch, CURLOPT_POST, true);
+                    curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+                    //So that curl_exec returns the contents of the cURL; rather than echoing it
+                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                    //execute post
+                    $result = curl_exec($ch);
+                    $info = curl_getinfo($ch);
                 }
 
-            }
+                if (isset($_GET["stopMotor"])) {
+                    $command = $_GET["stopMotor"];
+                    //The url you wish to send the POST request to (change url)
+                    $url = "https://api.samklop.xyz/settask";
+                    //The data you want to send via POST look at manual of api
+                    $data = array('id' => '2', 'task' => $command);
+                    //url-ify the data for the POST
+                    $data_string = http_build_query($data);
+                    //open connection
+                    $ch = curl_init();
+                    //set the url, number of POST vars, POST data
+                    curl_setopt($ch, CURLOPT_URL, $url);
+                    curl_setopt($ch, CURLOPT_POST, true);
+                    curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+                    //So that curl_exec returns the contents of the cURL; rather than echoing it
+                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                    //execute post
+                    $result = curl_exec($ch);
+                    $info = curl_getinfo($ch);
+                }
 
-        }
+                if (isset($_GET["right"])) {
+                    $command = $_GET["right"];
+                    //The url you wish to send the POST request to (change url)
+                    $url = "https://api.samklop.xyz/settask";
+                    //The data you want to send via POST look at manual of api
+                    $data = array('id' => '2', 'task' => $command);
+                    //url-ify the data for the POST
+                    $data_string = http_build_query($data);
+                    //open connection
+                    $ch = curl_init();
+                    //set the url, number of POST vars, POST data
+                    curl_setopt($ch, CURLOPT_URL, $url);
+                    curl_setopt($ch, CURLOPT_POST, true);
+                    curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+                    //So that curl_exec returns the contents of the cURL; rather than echoing it
+                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                    //execute post
+                    $result = curl_exec($ch);
+                    $info = curl_getinfo($ch);
+                }
 
+                if (isset($_GET["left"])) {
+                    $command = $_GET["left"];
+                    //The url you wish to send the POST request to (change url)
+                    $url = "https://api.samklop.xyz/settask";
+                    //The data you want to send via POST look at manual of api
+                    $data = array('id' => '2', 'task' => $command);
+                    //url-ify the data for the POST
+                    $data_string = http_build_query($data);
+                    //open connection
+                    $ch = curl_init();
+                    //set the url, number of POST vars, POST data
+                    curl_setopt($ch, CURLOPT_URL, $url);
+                    curl_setopt($ch, CURLOPT_POST, true);
+                    curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+                    //So that curl_exec returns the contents of the cURL; rather than echoing it
+                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                    //execute post
+                    $result = curl_exec($ch);
+                    $info = curl_getinfo($ch);
+                }
 
+                if (isset($_GET["forward"])) {
+                    $command = $_GET["forward"];
+                    //The url you wish to send the POST request to (change url)
+                    $url = "https://api.samklop.xyz/settask";
+                    //The data you want to send via POST look at manual of api
+                    $data = array('id' => '2', 'task' => $command);
+                    //url-ify the data for the POST
+                    $data_string = http_build_query($data);
+                    //open connection
+                    $ch = curl_init();
+                    //set the url, number of POST vars, POST data
+                    curl_setopt($ch, CURLOPT_URL, $url);
+                    curl_setopt($ch, CURLOPT_POST, true);
+                    curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+                    //So that curl_exec returns the contents of the cURL; rather than echoing it
+                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                    //execute post
+                    $result = curl_exec($ch);
+                    $info = curl_getinfo($ch);
+                }
 
+                if (isset($_GET["Race"])) {
+                    $command = $_GET["Race"];
+                    //The url you wish to send the POST request to (change url)
+                    $url = "https://api.samklop.xyz/settask";
+                    //The data you want to send via POST look at manual of api
+                    $data = array('id' => '2', 'task' => $command);
+                    //url-ify the data for the POST
+                    $data_string = http_build_query($data);
+                    //open connection
+                    $ch = curl_init();
+                    //set the url, number of POST vars, POST data
+                    curl_setopt($ch, CURLOPT_URL, $url);
+                    curl_setopt($ch, CURLOPT_POST, true);
+                    curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+                    //So that curl_exec returns the contents of the cURL; rather than echoing it
+                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                    //execute post
+                    $result = curl_exec($ch);
+                    $info = curl_getinfo($ch);
+                }
+                if (isset($_GET["Tiktaktoe"])) {
+                    $command = $_GET["Tiktaktoe"];
+                    //The url you wish to send the POST request to (change url)
+                    $url = "https://api.samklop.xyz/settask";
+                    //The data you want to send via POST look at manual of api
+                    $data = array('id' => '2', 'task' => $command);
+                    //url-ify the data for the POST
+                    $data_string = http_build_query($data);
+                    //open connection
+                    $ch = curl_init();
+                    //set the url, number of POST vars, POST data
+                    curl_setopt($ch, CURLOPT_URL, $url);
+                    curl_setopt($ch, CURLOPT_POST, true);
+                    curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+                    //So that curl_exec returns the contents of the cURL; rather than echoing it
+                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                    //execute post
+                    $result = curl_exec($ch);
+                    $info = curl_getinfo($ch);
+                }
+                if (isset($_GET["ShapeRedraw"])) {
+                    $command = $_GET["ShapeRedraw"];
+                    //The url you wish to send the POST request to (change url)
+                    $url = "https://api.samklop.xyz/settask";
+                    //The data you want to send via POST look at manual of api
+                    $data = array('id' => '2', 'task' => $command);
+                    //url-ify the data for the POST
+                    $data_string = http_build_query($data);
+                    //open connection
+                    $ch = curl_init();
+                    //set the url, number of POST vars, POST data
+                    curl_setopt($ch, CURLOPT_URL, $url);
+                    curl_setopt($ch, CURLOPT_POST, true);
+                    curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+                    //So that curl_exec returns the contents of the cURL; rather than echoing it
+                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                    //execute post
+                    $result = curl_exec($ch);
+                    $info = curl_getinfo($ch);
+                }
+                if (isset($_GET["Maze"])) {
+                    $command = $_GET["Maze"];
+                    //The url you wish to send the POST request to (change url)
+                    $url = "https://api.samklop.xyz/settask";
+                    //The data you want to send via POST look at manual of api
+                    $data = array('id' => '2', 'task' => $command);
+                    //url-ify the data for the POST
+                    $data_string = http_build_query($data);
+                    //open connection
+                    $ch = curl_init();
+                    //set the url, number of POST vars, POST data
+                    curl_setopt($ch, CURLOPT_URL, $url);
+                    curl_setopt($ch, CURLOPT_POST, true);
+                    curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+                    //So that curl_exec returns the contents of the cURL; rather than echoing it
+                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                    //execute post
+                    $result = curl_exec($ch);
+                    $info = curl_getinfo($ch);
+                }
 
-        // reloads the page every 5 seconds
-        //var timeout = setTimeout("location.reload(true);", 14000);
-        //updates the div for music
-        function AudioReload() {
-            $("#here").load(window.location.href + " #here");
-        }
+                ?>
 
-        var Audio = setInterval(AudioReload, 3000);
-    </script>
-    <div id="here">
-        <?php
-        // the div for music, with a random variable
-
-        if ($sped <= 10) {
-            echo "<script> playAudioStart(); </script>";
-            $sped = 150;
-        } else if ($sped > 10 && $sped < 20) {
-            echo "<script> playAudioSpeed1(); </script>";
-            $sped = 150;
-        } else if ($sped >= 20 && $sped <= 40) {
-            echo "<script> playAudioSpeed2(); </script>";
-            $sped = 150;
-        } else if ($sped > 40 && $sped <= 70) {
-            echo "<script> playAudioSpeed3(); </script>";
-            $sped = 150;
-        } else if ($sped > 70 && $sped <= 100) {
-            echo "<script> playAudioSpeed4(); </script>";
-            $sped = 150;
-        }
-        ?>
-
-    </div>
 
 </body>
 
