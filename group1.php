@@ -29,7 +29,7 @@ $botID = "1";
     }
 
     if (isset($_GET['command']) && !empty($_GET['command']))
-        $command = $_GET["command"];
+        $command = filter_input(INPUT_GET, 'command', FILTER_SANITIZE_STRING);
     else
         $command = null;
 
