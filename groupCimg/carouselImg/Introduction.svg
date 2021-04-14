@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="750" viewBox="0 0 1800 750">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 75px;
+        fill: #fff;
+        font-family: Montserrat;
+      }
+
+      .cls-2 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <text id="Project_DOOMBOT_is_a_NHL_Stenden_project_which_took_place_in_" data-name="Project DOOMBOT is a NHL Stenden project,  which took place in " class="cls-1" x="65" y="260.724">Project DOOMBOT is a NHL Stenden project, <tspan x="65" dy="90">which took place in period 3. </tspan><tspan x="65" dy="90">The students from Team C teamed </tspan><tspan x="65" dy="90">up and made this dream into reality.</tspan></text>
+  <rect class="cls-2" width="1800" height="750"/>
+</svg>

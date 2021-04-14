@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="750" viewBox="0 0 1800 750">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 66.667px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: #fff;
+        font-family: Montserrat;
+      }
+
+      .cls-2 {
+        font-size: 100px;
+      }
+
+      .cls-3 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <text id="A_challenge_of_speed_and_control._The_robots_are_tasked_to_mak" data-name="A challenge of speed and control.  The robots are tasked to mak" class="cls-1" x="38" y="258.724">A challenge of speed and control. <tspan x="38" dy="80">The robots are tasked to make a complete circuit </tspan><tspan x="38" dy="80">of 4 right angle turns . On its way each bot will try </tspan><tspan x="38" dy="80">to achieve a balance of high speed and turn control. </tspan><tspan x="38" dy="80">Once the robot has reached the finish line it will </tspan><tspan x="38" dy="80">send a electronic baton to the next contender.</tspan></text>
+  <text id="Relay_race" data-name="Relay race" class="cls-2" x="38" y="164.673">Relay race</text>
+  <rect class="cls-3" width="1800" height="750"/>
+</svg>

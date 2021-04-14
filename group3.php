@@ -16,61 +16,50 @@
         ?>
 		
 	<section id="testimonials">
-
-    
-
-<div id="testimonial-carousel" class="carousel slide" data-ride="false">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <h2>Project DOOMBOT is a NHL Stenden project, which took place in period 3. The students from Team C teamed up and made this dream into reality.</h2>
-    </div>
-    <div class="carousel-item">
-      <h2 class="testimonial-text">THE MAZE</h2>
-      <h2> The robots are task to venture deep into a labyrinth with the goal of reaching the designated exit. Using the extraordinary capabilities of the ESP-32 and the brilliants of the programmers, the robots will navigate using its sense of the immediate surroundings to ultimately reach the exit.</h2>
-    </div>
-    <div class="carousel-item">
-      <h2 class="testimonial-text"> The Relay</h2>
-      <h2>A challenge of speed and control. The robots are task to make a complete circuit of 4 right, almost right angle turns . On its way each bot will try to achieve a balance of high speed and turn control. Once the robot how reached the finish line it will send a electronic baton to the next contender.</h2>
-    </div>
-    <div class="carousel-item">
-      <h2 class="testimonial-text"> Tic Tac Toe</h2>
-      <h2>Tactical thinking done both preemptively by the programmers and live by the ESP-32, the robots are task to go toe-to-toe against the opposition both digitally and physically in a game of strategy and limited options such as Tic-Tac-Toe. 
-</h2>
-    </div>
-    <div class="carousel-item">
-      <h2 class="testimonial-text">Line Redraw</h2>
-      <h2>The most challenging game for both the programmers and the ESP-32 current capabilities. The robots are task to use its sense of the surface below it to memories a path and near perfectly recreate the same path.</h2>
-    </div>
-    <div class="carousel-item">
-        <img class="carousel-image" src="groupCimg/Sean.png">
-      <h2 class="testimonial-text">Sean, Team Member</h2>
-    </div>
-    <div class="carousel-item">
-        <img class="carousel-image" src="groupCimg/Josta.png">
-      <h2 class="testimonial-text">Josta, Team Member</h2>
-    </div>
-    <div class="carousel-item">
-        <img class="carousel-image" src="groupCimg/Keanu.png">
-      <h2 class="testimonial-text">Keanu, Team Member</h2>
-    </div>
-    <div class="carousel-item">
-        <img class="carousel-image" src="groupCimg/Stefan.png">
-      <h2 class="testimonial-text">Stefan, Team Member</h2>
-    </div>
-    <div class="carousel-item">
-        <img class="carousel-image" src="groupCimg/Vasil.png">
-      <h2 class="testimonial-text">Vasil, Team Member</h2>
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#testimonial-carousel" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon"></span>
-  </a>
-  <a class="carousel-control-next" href="#testimonial-carousel" role="button" data-slide="next">
-    <span class="carousel-control-next-icon"></span>
-  </a>
-</div>
-
-</section>
+	<div id="testimonial-carousel" class="carousel slide" data-ride="false">
+		<div class="carousel-inner">
+			<div class="carousel-item active">
+				<img class="carousel-image" src="groupCImg/carouselImg/Introduction.svg">
+			</div>
+			<div class="carousel-item">
+				<img class="carousel-image" src="groupCImg/carouselImg/RelayRace.svg">
+				</div>
+			<div class="carousel-item">
+				<img class="carousel-image" src="groupCimg/carouselImg/Tic-Tac-Toe.svg">
+			</div>
+			<div class="carousel-item">
+			<img class="carousel-img" src="groupCImg/carouselImg/ShapeDraw.svg">
+			</div>
+			<div class="carousel-item">
+				<img class="carousel-imgage" src="groupCImg/carouselImg/Maze.svg">
+			</div>
+			<div class="carousel-item">
+				<img class="carousel-imgage" src="groupCImg/carouselImg/Sean.png">
+			</div>
+			<div class="carousel-item">
+				<img class="carousel-imgage" src="groupCImg/carouselImg/Josta.png">
+			</div>
+			<div class="carousel-item">
+				<img class="carousel-imgage" src="groupCImg/carouselImg/Keanu.png">
+			</div>
+			<div class="carousel-item">
+				<img class="carousel-imgage" src="groupCImg/carouselImg/Stefan.png">
+			</div>
+			<div class="carousel-item">
+				<img class="carousel-imgage" src="groupCImg/carouselImg/Vasil.png">
+			</div>
+			<div class="masterpiece carousel-item">
+				<img class="carousel-imgage" src="groupCImg/carouselImg/Masterpiece.png">
+			</div>
+		</div>
+		<a class="carousel-control-prev" href="#testimonial-carousel" role="button" data-slide="prev">
+		<span class="carousel-control-prev-icon"></span>
+		</a>
+		<a class="carousel-control-next" href="#testimonial-carousel" role="button" data-slide="next">
+			<span class="carousel-control-next-icon"></span>
+		</a>
+	</div>
+	</section>
         <div class="flex flex-col flex-grow wrapper">
             <div class="flex flex-wrap upperHalf justify-between h-2-4">
                 <div class="flex flex-col border-b-4 border-l-4 border-r-4 border-solid border-gray-600 bg-gray-400 w-px-500 m-5">

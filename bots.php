@@ -85,7 +85,7 @@ unset($_SESSION['botID']);
                     <div class="flex-col w-96 m-5 p-4 bg-gray-600 rounded">
                         <div class="flex w-full justify-between mb-4">
                             <h2 class="font-medium text-lg self-center truncate">' . $bot['name'] .'</h2>
-                            <a href="control.php?key='. key($bots) . '" class="bg-green-500 hover:bg-green-700 rounded p-2">View</a>
+                            <a href="group'. key($bots) . '.php" class="bg-green-500 hover:bg-green-700 rounded p-2">View</a>
                         </div>
                         <div class="flex-col w-full">
                             <div class="flex justify-between my-1">

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="750" viewBox="0 0 1800 750">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 66.667px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: #fff;
+        font-family: Montserrat;
+      }
+
+      .cls-2 {
+        font-size: 100px;
+      }
+
+      .cls-3 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <text id="The_robots_are_task_to_venture_deep_into_a_labyrinth_with_the_" data-name="The robots are task to venture deep into a labyrinth  with the " class="cls-1" x="50" y="252.724">The robots are task to venture deep into a labyrinth <tspan x="50" dy="80">with the goal of reaching the designated exit. </tspan><tspan x="50" dy="80">Using the extraordinary capabilities of the ESP-32 </tspan><tspan x="50" dy="80">and the brilliants of the programmers, the robots </tspan><tspan x="50" dy="80">will navigate using its sense of the immediate </tspan><tspan x="50" dy="80">surroundings to ultimately reach the exit.</tspan></text>
+  <text id="Maze" class="cls-2" x="50" y="154.673">Maze</text>
+  <rect class="cls-3" width="1800" height="750"/>
+</svg>
