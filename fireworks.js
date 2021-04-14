@@ -11,9 +11,7 @@ const cy = innerHeight / 2;
 const projectiles = [];
 const particles = [];
 
-let fireworkOn = false;
-
-button.addEventListener('click', () => {
+export default function initiateFirework(){
     if(!fireworkOn){
         ctx.fillStyle = 'rgb(0,0,0)';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -21,6 +19,12 @@ button.addEventListener('click', () => {
         canvas.style.opacity = '0.9';
         canvas.style.zIndex = 100;
     }
+}
+
+let fireworkOn = false;
+
+button.addEventListener('click', () => {
+    initiateFirework();
 });
 
 const animate = () => {

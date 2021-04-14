@@ -1,3 +1,26 @@
+<?php
+    session_start();
+    $config = require_once('config.php');
+    $conn = mysqli_connect($config['host'], $config['user'], $config['password'], $config['name']);
+    $scores = [];
+    $game1Played = 0;
+    $game2Played = 0;
+    $game3Played = 0;
+    $games = ["game1"];
+
+    $result = mysqli_query($conn, "SELECT *FROM robots");
+    while ($row = mysqli_fetch_array($result)) {
+        $game1Played = $row["game1_score"] > 0 ? 1 : $game1Played; 
+        $game2Played = $row["game2_score"] > 0 ? 1 : $game2Played; 
+        $game3Played = $row["game3_score"] > 0 ? 1 : $game3Played; 
+        $score = $row['game1_score'] + $row['game2_score'] + $row['game3_score'];
+        $scores[$row['team']] = $score;
+    }
+    arsort($scores, 1);
+    
+    $completedGames = $game1Played + $game2Played + $game3Played;
+    
+?>
 <!doctype html>
 <html lang="en">
 
@@ -6,34 +29,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link href="css/styles.css" rel="stylesheet" type="text/css">
         <link href="groupD.css" rel="stylesheet" type="text/css">
+        <script src="fireworks.js" type="module" defer></script>
+        <script defer type="module">
+            import initiateFirework from "./fireworks.js";
+            if(<?php echo $_SESSION["firework"]; ?> < <?php echo $completedGames; ?>){
+                initiateFirework();
+            }
+        </script>
+        <?php $_SESSION["firework"] = $completedGames; ?>
     </head>
 
-    <?php
-        session_start();
-        $config = require_once('config.php');
-        $conn = mysqli_connect($config['host'], $config['user'], $config['password'], $config['name']);
-        $scores = [];
-        $game1Played = 0;
-        $game2Played = 0;
-        $game3Played = 0;
-        $games = ["game1"];
-
-
-
-        $result = mysqli_query($conn, "SELECT *FROM robots");
-        while ($row = mysqli_fetch_array($result)) {
-            $game1Played = $row["game1_score"] > 0 ? 1 : $game1Played; 
-            $game2Played = $row["game2_score"] > 0 ? 1 : $game2Played; 
-            $game3Played = $row["game3_score"] > 0 ? 1 : $game3Played; 
-            $score = $row['game1_score'] + $row['game2_score'] + $row['game3_score'];
-            $scores[$row['team']] = $score;
-        }
-        arsort($scores, 1);
-
-
-        
-        $completedGames = $game1Played + $game2Played + $game3Played;
-    ?>
+    
 
     <body class="text-white">
         <canvas id="canvas"></canvas>
@@ -69,23 +75,23 @@
                 <div class="flex flex-wrap p-4 justify-center">
                     <div class="flex flex-col  my-1 mx-3 p-4 justify-center">
                     <div class="icons" id="relay"></div>
-                        <p class="my-2 text-center"><b>Relay</b></p>
-                        <button class="rounded-full text-white px-6 py-2 yellow">Start</button>
+                        <p class="my-2 text-center"><b>Relay Race</b></p>
+                        <!-- <button class="rounded-full text-white px-6 py-2 yellow">Start</button> -->
                     </div>
                     <div class="flex flex-col my-1 mx-3 p-4 justify-center">
                         <div class="icons" id="tictactoe"></div>
                         <p class="my-2 text-center"><b>Tic-Tac-Toe</b></p>
-                        <button class="rounded-full text-white px-6 py-2 yellow">Start</button>
+                        <!-- <button class="rounded-full text-white px-6 py-2 yellow">Start</button> -->
                     </div>
                     <div class="flex flex-col  my-1 mx-3 p-4 justify-center">
                     <div class="icons" id="shapeDraw"></div>
                         <p class="my-2 text-center"><b>Shape Draw</b></p>
-                        <button class="-600 rounded-full text-white px-6 py-2 yellow">Start</button>
+                        <!-- <button class="-600 rounded-full text-white px-6 py-2 yellow">Start</button> -->
                     </div>
                     <div class="flex flex-col  my-1 mx-3 p-4 justify-center">
                     <div class="icons" id="maze"></div>
                         <p class="my-2 text-center"><b>Maze</b></p>
-                        <button class="rounded-full text-white px-6 py-2 yellow">Start</button>
+                        <!-- <button class="rounded-full text-white px-6 py-2 yellow">Start</button> -->
                     </div>
                 </div>
                 <div class="flex flex-col progressBars p-4">
@@ -107,7 +113,7 @@
                         </div>
                         <div id="gamesCompleted" class="gameStatCard flex">
                             <img src="groupDImg/<?php echo $completedGames?>.png" alt="Indicates played games" class="statsImage">
-                            <div class="flex flex-col statText"><?php echo $completedGames?> Games Played</div> 
+                            <div class="flex flex-col statText"><?php echo $completedGames?> Games Completed</div> 
                         </div>
                         
                     </div>
@@ -141,8 +147,8 @@
 //            }
 //            var_dump($_SESSION["timer"]);
  
-            ?>
-        <script src="fireworks.js"></script>
+        ?>
+        
         <script>
                 var i = 0;
                 if (sessionStorage.getItem("timer") <= 1)
@@ -176,9 +182,9 @@
                     var elem = document.getElementById("myBar");
                     var timer2 = sessionStorage.getItem("timer");
                     var timer = parseInt(timer2);
-                    var fifty = 50;
+                    var fifty = 20;
                     var id = setInterval(myFunction, 20);
-                    var width = 50;
+                    var width = 20;
                     function Taimer() {
                         // this is the time removal for the battery
                         timer = timer - 1;
@@ -211,9 +217,6 @@
  
                 }
  
- 
- 
- 
                    // reloads the page every 5seconds
                 var timeout = setTimeout("location.reload(true);", 5000);
                 //updates the div for music
@@ -229,7 +232,7 @@
                 <?php
  
                 // the div for music, with a random variable
-                $a = 120;
+                $a = 30;
                 if ($a <= 10) {
                     echo "<script> playAudioStart(); </script>";
                 } else if ($a > 10 && $a < 20) {
