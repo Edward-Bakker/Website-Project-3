@@ -10,7 +10,7 @@
     </head>
  
     <body class="bg-gray-800 text-white">
-        <h1 class="text-center text-4xl m-5">DOOMBOT</h1>
+        <h1 class="text-center text-4xl m-5">DOOMBOT - Group C</h1>
         <?php
         require_once('navbar.php');
         ?>
@@ -77,24 +77,20 @@
             <div class="flex flex-wrap lowerHalf justify-between h-2-4">
                 <div class="flex flex-wrap p-4 justify-center">
                     <div class="flex flex-col border-4 border-solid border-gray-600 my-1 mx-3 p-4 justify-center">
-                        <div class="rounded-full w-px-100 h-px-100 bg-gray-600"></div>
+                        <img class="gameIcon" src="groupCImg/flag.svg">
                         <p class="my-2 text-gray-600">Relay</p>
-                        <button class="bg-gray-600 rounded-full px-6 py-2">Start</button>
                     </div>
                     <div class="flex flex-col border-4 border-solid border-gray-600 my-1 mx-3 p-4 justify-center">
-                        <div class="rounded-full w-px-100 h-px-100 bg-gray-600"></div>
+                        <img class="gameIcon" src="groupCImg/tictactoe.svg">
                         <p class="my-2 text-gray-600">Tic-Tac-Toe</p>
-                        <button class="bg-gray-600 rounded-full px-6 py-2">Start</button>
                     </div>
                     <div class="flex flex-col border-4 border-solid border-gray-600 my-1 mx-3 p-4 justify-center">
-                        <div class="rounded-full w-px-100 h-px-100 bg-gray-600"></div>
+                        <img class="gameIcon" src="groupCImg/shape.svg">
                         <p class="my-2 text-gray-600">Shape Draw</p>
-                        <button class="bg-gray-600 rounded-full px-6 py-2">Start</button>
                     </div>
                     <div class="flex flex-col border-4 border-solid border-gray-600 my-1 mx-3 p-4 justify-center">
-                        <div class="rounded-full w-px-100 h-px-100 bg-gray-600"></div>
+                        <img class="gameIcon" src="groupCImg/maze.svg">
                         <p class="my-2 text-gray-600">Maze</p>
-                        <button class="bg-gray-600 rounded-full px-6 py-2">Start</button>
                     </div>
                 </div>
                 <div class="flex flex-col progressBars p-4">

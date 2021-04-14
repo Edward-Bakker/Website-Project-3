@@ -155,6 +155,10 @@ body{
     transform: scale(1.5);
 }
 
+.gameIcon {
+	height: 120px;
+	width: 120px;
+filter: invert(77%) sepia(19%) saturate(167%) hue-rotate(175deg) brightness(89%) contrast(89%);}
 
 @media (max-width: 1350px) {
     .wrapper {
