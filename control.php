@@ -156,7 +156,7 @@ if (isset($_GET["key"])) {
                         $the_key = $command;
                     }
                     foreach (array(
-                        "race" => "Race", "tiktactoe" => "TikTacToe", "maze" => "Maze", "shaperedraw" => "ShapeRedraw"
+                        "race" => "Race", "tiktactoe" => "TikTacToe", "maze" => "Maze", "shaperedraw" => "ShapeRedraw", "idle" => "Idle"
                     ) as $key => $val) {
                     ?><option value="<?php echo $key; ?>" <?php
                                                             if ($key == $the_key) echo ' selected="selected"';
