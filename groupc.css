@@ -125,16 +125,14 @@ body{
 }
 
 #testimonials{
-    
     text-align: center;
     margin: 0 25%;
 }
 
 .carousel-image{
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
+	min-width: 500px;
 }
+
 .h2{
     text-align: center;
 }
@@ -145,7 +143,14 @@ body{
 .carousel-item{
     padding: 7% 15%;
     padding-bottom: 0%;
+}
 
+.masterpiece img  {
+	transition: transform 0.2s ease-in;
+}
+
+.masterpiece img:hover {
+	transform: scale(1.5);
 }
 
 @media (max-width: 1350px) {
@@ -162,5 +167,15 @@ body{
     .upperHalf, .lowerHalf{
         justify-content: center;
     }
-    
 }
+
+/*@media (max-width: 750px) {
+	.carousel-image {
+		min-width: 400px;
+	}
+	
+	.carousel-item {
+		padding-right: 15px;
+	}
+}
+}*/

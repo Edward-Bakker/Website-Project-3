@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="750" viewBox="0 0 1800 750">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 66.667px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: #fff;
+        font-family: Montserrat;
+      }
+
+      .cls-2 {
+        font-size: 100px;
+      }
+
+      .cls-3 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <text id="Tactical_thinking_done_both_preemptively_by_the_programmers_an" data-name="Tactical thinking done both preemptively by  the programmers an" class="cls-1" x="56" y="291.724">Tactical thinking done both preemptively by <tspan x="56" dy="80">the programmers and live by the ESP-32, </tspan><tspan x="56" dy="80">the robots are task to go toe-to-toe against the </tspan><tspan x="56" dy="80">opposition both digitally and physically in a game </tspan><tspan x="56" dy="80">of strategy and limited options such as Tic-Tac-Toe.</tspan></text>
+  <text id="Tic-Tac-Toe" class="cls-2" x="56" y="198.674">Tic-Tac-Toe</text>
+  <rect class="cls-3" width="1800" height="750"/>
+</svg>

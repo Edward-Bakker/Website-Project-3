@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="750" viewBox="0 0 1800 750">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 66.667px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: #fff;
+        font-family: Montserrat;
+      }
+
+      .cls-2 {
+        font-size: 100px;
+      }
+
+      .cls-3 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <g>
+    <text id="The_most_challenging_game_for_both_the_programmers_and_the_ESP" data-name="The most challenging game for both the  programmers and the ESP" class="cls-1" x="69" y="296.725">The most challenging game for both the <tspan x="69" dy="80">programmers and the ESP-32 current capabilities. </tspan><tspan x="69" dy="80">The robots are task to use its sense of the surface </tspan><tspan x="69" dy="80">below it to memories a path and near perfectly </tspan><tspan x="69" dy="80">recreate the same path.</tspan></text>
+    <text id="Shape_draw" data-name="Shape draw" class="cls-2" x="64" y="193.674">Shape draw</text>
+  </g>
+  <rect class="cls-3" width="1800" height="750"/>
+</svg>
