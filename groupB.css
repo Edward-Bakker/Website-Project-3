@@ -131,7 +131,7 @@ body {
 
 .progressBars {
     flex-grow: 1;
-    width:400px;
+    width: 400px;
 }
 
 .myProgress {
@@ -165,12 +165,50 @@ body {
 }
 
 .bg {
-    background-color: #dfe8e8;
+    background-color: gray;
+    position: fixed;
+}
+
+.icons {
+    height: 120px;
+    width: 120px;
+}
+
+#relay {
+    background-image: url("groupDImg/relay1.svg");
+}
+
+#tictactoe {
+    background-image: url("groupDImg/tic.svg");
+}
+
+#shapeDraw {
+    background-image: url("groupDImg/shape1.svg");
+}
+
+#maze {
+    background-image: url("groupDImg/maze.svg");
+}
+
+.control {
+    width: 200px;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.control * {
+    width: 100%;
 }
 
 @media (max-width: 1350px) {
     .wrapper {
         width: 90%;
+    }
+    .bg {
+        position: relative;
+    }
+    .video {
+        display: none;
     }
 }
 
@@ -178,26 +216,27 @@ body {
     .progressBars {
         width: 100%;
     }
-
     .lowerHalf {
         justify-content: center;
         width: 100%;
     }
+    .video {
+        display: none;
+    }
 }
-button
-{
-    width:100%;
+
+button {
+    width: 100%;
+    background-color: #17B3B4;
 }
-.video
-{
+
+.video {
     position: absolute;
     z-index: -2;
+    min-height: 100%;
+    min-width: 100%;
 }
-.transparent
-{
-    width:100%;
-    height:100%;
- position: absolute;
- z-index:-1 ;
- background-color: rgba(255,255,255,0.1);
+
+.transparent {
+    background-color: rgba(255, 255, 255, 0.2);
 }
