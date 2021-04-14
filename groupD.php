@@ -229,7 +229,7 @@
                 <?php
  
                 // the div for music, with a random variable
-                $a = 30;
+                $a = 120;
                 if ($a <= 10) {
                     echo "<script> playAudioStart(); </script>";
                 } else if ($a > 10 && $a < 20) {
