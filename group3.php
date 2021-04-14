@@ -1,3 +1,11 @@
+<?php
+// Initialize the session
+session_start();
+
+$config = require_once('config.php');
+$conn = mysqli_connect($config['host'], $config['user'], $config['password'], $config['name']);
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -10,65 +18,98 @@
     </head>
  
     <body class="bg-gray-800 text-white">
-        <h1 class="text-center text-4xl m-5">DOOMBOT-Group C</h1>
+        <h1 class="text-center text-4xl m-5">DOOMBOT - Group C</h1>
         <?php
         require_once('navbar.php');
         ?>
-		
-	<section id="testimonials">
-	<div id="testimonial-carousel" class="carousel slide" data-ride="false">
-		<div class="carousel-inner">
-			<div class="carousel-item active">
-				<img class="carousel-image" src="groupCImg/carouselImg/Introduction.svg">
-			</div>
-			<div class="carousel-item">
-				<img class="carousel-image" src="groupCImg/carouselImg/RelayRace.svg">
-				</div>
-			<div class="carousel-item">
-				<img class="carousel-image" src="groupCimg/carouselImg/Tic-Tac-Toe.svg">
-			</div>
-			<div class="carousel-item">
-			<img class="carousel-img" src="groupCImg/carouselImg/ShapeDraw.svg">
-			</div>
-			<div class="carousel-item">
-				<img class="carousel-imgage" src="groupCImg/carouselImg/Maze.svg">
-			</div>
-			<div class="carousel-item">
-				<img class="carousel-imgage" src="groupCImg/carouselImg/Sean.png">
-			</div>
-			<div class="carousel-item">
-				<img class="carousel-imgage" src="groupCImg/carouselImg/Josta.png">
-			</div>
-			<div class="carousel-item">
-				<img class="carousel-imgage" src="groupCImg/carouselImg/Keanu.png">
-			</div>
-			<div class="carousel-item">
-				<img class="carousel-imgage" src="groupCImg/carouselImg/Stefan.png">
-			</div>
-			<div class="carousel-item">
-				<img class="carousel-imgage" src="groupCImg/carouselImg/Vasil.png">
-			</div>
-			<div class="masterpiece carousel-item">
-				<img class="carousel-imgage" src="groupCImg/carouselImg/Masterpiece.png">
-			</div>
-		</div>
-		<a class="carousel-control-prev" href="#testimonial-carousel" role="button" data-slide="prev">
-		<span class="carousel-control-prev-icon"></span>
-		</a>
-		<a class="carousel-control-next" href="#testimonial-carousel" role="button" data-slide="next">
-			<span class="carousel-control-next-icon"></span>
-		</a>
-	</div>
-	</section>
+        
+    <section id="testimonials">
+    <div id="testimonial-carousel" class="carousel slide" data-ride="false">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="carousel-image" src="groupCImg/carouselImg/Introduction.svg">
+            </div>
+            <div class="carousel-item">
+                <img class="carousel-image" src="groupCImg/carouselImg/RelayRace.svg">
+                </div>
+            <div class="carousel-item">
+                <img class="carousel-image" src="groupCimg/carouselImg/Tic-Tac-Toe.svg">
+            </div>
+            <div class="carousel-item">
+            <img class="carousel-img" src="groupCImg/carouselImg/ShapeDraw.svg">
+            </div>
+            <div class="carousel-item">
+                <img class="carousel-imgage" src="groupCImg/carouselImg/maze.svg">
+            </div>
+            <div class="carousel-item">
+                <img class="carousel-imgage" src="groupCImg/carouselImg/Sean.png">
+            </div>
+            <div class="carousel-item">
+                <img class="carousel-imgage" src="groupCImg/carouselImg/Josta.png">
+            </div>
+            <div class="carousel-item">
+                <img class="carousel-imgage" src="groupCImg/carouselImg/Keanu.png">
+            </div>
+            <div class="carousel-item">
+                <img class="carousel-imgage" src="groupCImg/carouselImg/Stefan.png">
+            </div>
+            <div class="carousel-item">
+                <img class="carousel-imgage" src="groupCImg/carouselImg/Vasil.png">
+            </div>
+            <div class="masterpiece carousel-item">
+                <img class="carousel-imgage" src="groupCImg/carouselImg/Masterpiece.png">
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#testimonial-carousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#testimonial-carousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+    </section>
         <div class="flex flex-col flex-grow wrapper">
             <div class="flex flex-wrap upperHalf justify-between h-2-4">
                 <div class="flex flex-col border-b-4 border-l-4 border-r-4 border-solid border-gray-600 bg-gray-400 w-px-500 m-5">
-                    <h2 class="bg-gray-600 p-2 text-gray-800">Scoreboard</h2>
-                    <div class="flex flex-grow text-gray-600 px-3 items-center p-1">1.</div>
-                    <div class="flex flex-grow text-gray-600 px-3 items-center p-1">2.</div>
-                    <div class="flex flex-grow text-gray-600 px-3 items-center p-1">3.</div>
-                    <div class="flex flex-grow text-gray-600 px-3 items-center p-1">4.</div>
-                    <div class="flex flex-grow text-gray-600 px-3 items-center p-1">5.</div>
+                    <h2 class="bg-gray-600 p-2 text-gray-800">Team C points</h2>
+                    <div class="flex flex-grow px-3 items-center p-1">Relay Race:
+                    <?php
+                    $result = mysqli_query($conn, "SELECT *FROM robots WHERE team='C'");
+                    while ($row = mysqli_fetch_array($result)) {
+                        $score1C = $row['game1_score'];
+                        echo $score1C;
+                    }
+                    ?>
+                </div>
+                <div class="flex flex-grow  px-3 items-center p-1">Tic-Tac-Toe:
+                    <?php
+                    $result = mysqli_query($conn, "SELECT *FROM robots WHERE team='C'");
+                    while ($row = mysqli_fetch_array($result)) {
+                        $score2C = $row['game2_score'];
+                        echo $score2C;
+                    }
+                    ?>
+                </div>
+                <div class="flex flex-grow  px-3 items-center p-1">Shape Draw:
+                    <?php
+                    $result = mysqli_query($conn, "SELECT *FROM robots WHERE team='C'");
+                    while ($row = mysqli_fetch_array($result)) {
+                        $score3C = $row['game3_score'];
+                        echo'---';
+                        //echo $score3C;
+                        //should be game 3 but since shape redraw is not working game 3=maze
+                    }
+                    ?>
+                </div>
+                <div class="flex flex-grow  px-3 items-center p-1">Maze:
+                    <?php
+                    $result = mysqli_query($conn, "SELECT *FROM robots WHERE team='C'");
+                    while ($row = mysqli_fetch_array($result)) {
+                        $score3C = $row['game3_score'];
+                        echo $score3C;
+                    }
+                    ?>
+                </div>
                 </div>
                 <div class="flex bg-gray-600 w-px-500 m-5">
                     <h2 class="bg-gray-600 p-2 text-gray-800">Stream</h2>
@@ -77,24 +118,20 @@
             <div class="flex flex-wrap lowerHalf justify-between h-2-4">
                 <div class="flex flex-wrap p-4 justify-center">
                     <div class="flex flex-col border-4 border-solid border-gray-600 my-1 mx-3 p-4 justify-center">
-                        <div class="rounded-full w-px-100 h-px-100 bg-gray-600"></div>
+                        <img class="gameIcon" src="groupCImg/flag.svg">
                         <p class="my-2 text-gray-600">Relay</p>
-                        <button class="bg-gray-600 rounded-full px-6 py-2">Start</button>
                     </div>
                     <div class="flex flex-col border-4 border-solid border-gray-600 my-1 mx-3 p-4 justify-center">
-                        <div class="rounded-full w-px-100 h-px-100 bg-gray-600"></div>
+                        <img class="gameIcon" src="groupCImg/tictactoe.svg">
                         <p class="my-2 text-gray-600">Tic-Tac-Toe</p>
-                        <button class="bg-gray-600 rounded-full px-6 py-2">Start</button>
                     </div>
                     <div class="flex flex-col border-4 border-solid border-gray-600 my-1 mx-3 p-4 justify-center">
-                        <div class="rounded-full w-px-100 h-px-100 bg-gray-600"></div>
+                        <img class="gameIcon" src="groupCImg/shape.svg">
                         <p class="my-2 text-gray-600">Shape Draw</p>
-                        <button class="bg-gray-600 rounded-full px-6 py-2">Start</button>
                     </div>
                     <div class="flex flex-col border-4 border-solid border-gray-600 my-1 mx-3 p-4 justify-center">
-                        <div class="rounded-full w-px-100 h-px-100 bg-gray-600"></div>
+                        <img class="gameIcon" src="groupCImg/maze.svg">
                         <p class="my-2 text-gray-600">Maze</p>
-                        <button class="bg-gray-600 rounded-full px-6 py-2">Start</button>
                     </div>
                 </div>
                 <div class="flex flex-col progressBars p-4">

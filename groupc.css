@@ -1,7 +1,9 @@
 html, body{
     height: 100% !important;
 }
-
+h1{
+    font-weight: bolder;
+}
 body{
     display: flex;  
     flex-flow: column;
@@ -130,7 +132,7 @@ body{
 }
 
 .carousel-image{
-	min-width: 500px;
+    min-width: 500px;
 }
 
 .h2{
@@ -146,12 +148,17 @@ body{
 }
 
 .masterpiece img  {
-	transition: transform 0.2s ease-in;
+    transition: transform 0.2s ease-in;
 }
 
 .masterpiece img:hover {
-	transform: scale(1.5);
+    transform: scale(1.5);
 }
+
+.gameIcon {
+	height: 120px;
+	width: 120px;
+filter: invert(77%) sepia(19%) saturate(167%) hue-rotate(175deg) brightness(89%) contrast(89%);}
 
 @media (max-width: 1350px) {
     .wrapper {
@@ -170,12 +177,12 @@ body{
 }
 
 /*@media (max-width: 750px) {
-	.carousel-image {
-		min-width: 400px;
-	}
-	
-	.carousel-item {
-		padding-right: 15px;
-	}
+    .carousel-image {
+        min-width: 400px;
+    }
+    
+    .carousel-item {
+        padding-right: 15px;
+    }
 }
 }*/
