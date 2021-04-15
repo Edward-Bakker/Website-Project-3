@@ -90,10 +90,26 @@ Add the correct text decoration in Chrome, Edge, and Safari.
 Add the correct font weight in Edge and Safari.
 */
 
+b {
+  font-weight: bolder;
+}
+
 /**
 1. Improve consistency of default fonts in all browsers. (https://github.com/sindresorhus/modern-normalize/issues/3)
 2. Correct the odd 'em' font sizing in all browsers.
 */
+
+code,
+pre {
+  font-family:
+		ui-monospace,
+		SFMono-Regular,
+		Consolas,
+		'Liberation Mono',
+		Menlo,
+		monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
 
 /**
 Add the correct font size in all browsers.
@@ -219,7 +235,8 @@ Add the correct display in Chrome and Safari.
 h1,
 h2,
 h3,
-p {
+p,
+pre {
   margin: 0;
 }
 
@@ -236,6 +253,13 @@ button {
 button:focus {
   outline: 1px dotted;
   outline: 5px auto -webkit-focus-ring-color;
+}
+
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 /**
@@ -332,7 +356,8 @@ input::placeholder {
   color: #9ca3af;
 }
 
-button {
+button,
+[role="button"] {
   cursor: pointer;
 }
 
@@ -370,7 +395,7 @@ input,
 select {
   padding: 0;
   line-height: inherit;
-  width: 30%;
+  color: inherit;
 }
 
 /**
@@ -379,6 +404,11 @@ select {
  * back to the system monospace stack if there is no configured
  * 'mono' font family.
  */
+
+pre,
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
 
 /**
  * Make replaced elements `display: block` by default as that's
@@ -389,6 +419,10 @@ select {
  */
 
 img,
+svg,
+video,
+canvas,
+audio,
 iframe {
   display: block;
   vertical-align: middle;
@@ -401,7 +435,8 @@ iframe {
  * https://github.com/mozdevs/cssremedy/issues/14
  */
 
-img {
+img,
+video {
   max-width: 100%;
   height: auto;
 }
@@ -452,6 +487,10 @@ img {
           appearance: none;
 }
 
+.bg-transparent {
+  background-color: transparent;
+}
+
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
@@ -465,6 +504,11 @@ img {
 .bg-gray-300 {
   --tw-bg-opacity: 1;
   background-color: rgba(209, 213, 219, var(--tw-bg-opacity));
+}
+
+.bg-gray-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgba(156, 163, 175, var(--tw-bg-opacity));
 }
 
 .bg-gray-500 {
@@ -492,6 +536,11 @@ img {
   background-color: rgba(239, 68, 68, var(--tw-bg-opacity));
 }
 
+.bg-red-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgba(185, 28, 28, var(--tw-bg-opacity));
+}
+
 .bg-yellow-500 {
   --tw-bg-opacity: 1;
   background-color: rgba(245, 158, 11, var(--tw-bg-opacity));
@@ -507,6 +556,10 @@ img {
   background-color: rgba(4, 120, 87, var(--tw-bg-opacity));
 }
 
+.bg-opacity-25 {
+  --tw-bg-opacity: 0.25;
+}
+
 .border-gray-400 {
   --tw-border-opacity: 1;
   border-color: rgba(156, 163, 175, var(--tw-border-opacity));
@@ -515,6 +568,11 @@ img {
 .border-gray-600 {
   --tw-border-opacity: 1;
   border-color: rgba(75, 85, 99, var(--tw-border-opacity));
+}
+
+.border-red-700 {
+  --tw-border-opacity: 1;
+  border-color: rgba(185, 28, 28, var(--tw-border-opacity));
 }
 
 .focus\:border-gray-500:focus {
@@ -530,8 +588,16 @@ img {
   border-radius: 0.375rem;
 }
 
+.rounded-full {
+  border-radius: 9999px;
+}
+
 .border-solid {
   border-style: solid;
+}
+
+.border-4 {
+  border-width: 4px;
 }
 
 .border-8 {
@@ -540,6 +606,18 @@ img {
 
 .border {
   border-width: 1px;
+}
+
+.border-r-4 {
+  border-right-width: 4px;
+}
+
+.border-b-4 {
+  border-bottom-width: 4px;
+}
+
+.border-l-4 {
+  border-left-width: 4px;
 }
 
 .border-t {
@@ -558,12 +636,24 @@ img {
   display: table;
 }
 
+.contents {
+  display: contents;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
 .flex-col {
   flex-direction: column;
 }
 
 .flex-wrap {
   flex-wrap: wrap;
+}
+
+.items-center {
+  align-items: center;
 }
 
 .self-center {
@@ -604,6 +694,14 @@ img {
 
 .font-bold {
   font-weight: 700;
+}
+
+.h-10 {
+  height: 2.5rem;
+}
+
+.h-full {
+  height: 100%;
 }
 
 .h-screen {
@@ -661,6 +759,16 @@ img {
   margin-bottom: 0.25rem;
 }
 
+.my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.mx-3 {
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+}
+
 .my-16 {
   margin-top: 4rem;
   margin-bottom: 4rem;
@@ -694,6 +802,10 @@ img {
 
 .mb-6 {
   margin-bottom: 1.5rem;
+}
+
+.max-h-10 {
+  max-height: 2.5rem;
 }
 
 .max-w-xs {
@@ -740,6 +852,11 @@ img {
 .py-1 {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
+}
+
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .px-2 {
@@ -828,9 +945,24 @@ img {
   color: rgba(255, 255, 255, var(--tw-text-opacity));
 }
 
+.text-gray-100 {
+  --tw-text-opacity: 1;
+  color: rgba(243, 244, 246, var(--tw-text-opacity));
+}
+
+.text-gray-600 {
+  --tw-text-opacity: 1;
+  color: rgba(75, 85, 99, var(--tw-text-opacity));
+}
+
 .text-gray-700 {
   --tw-text-opacity: 1;
   color: rgba(55, 65, 81, var(--tw-text-opacity));
+}
+
+.text-gray-800 {
+  --tw-text-opacity: 1;
+  color: rgba(31, 41, 55, var(--tw-text-opacity));
 }
 
 .text-gray-900 {
@@ -951,33 +1083,4 @@ img {
   .md\:w-full {
     width: 100%;
   }
-}
-
-#zeroButtonDiv {
-	display: flex;
-	justify-content: center;
-}
-
-#zeroButton {
-	width: 200px;
-	height: 35px;
-	color: black;
-	font-weight: bold;
-}
-
-.submit {
-	color: black;
-}
-
-#submitWhite {
-	color: white;
-	width: 100%;
-}
-
-.editName {
-	width: 100px;
-}
-
-#inputField {
-	width: 100%;
 }

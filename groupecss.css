@@ -1,0 +1,370 @@
+
+/* First lets set a background */
+@font-face {
+    font-family: 'teslaregular';
+    src: url('groupEimg/fonts/tesla-webfont.woff2') format('woff2'),
+         url('groupEimg/fonts/tesla-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.bg{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('groupEimg/800512.jpg');
+    background-position: center center;
+    background-origin: content-box;
+    background-size: cover;
+    background-attachment: fixed;
+    z-index: -2;
+  }
+  
+  /* Now the same background, but with brightness filters*/
+  .lightning{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('groupEimg/800512.jpg');
+    background-position: center center;
+    background-origin: content-box;
+    background-size: cover;
+    background-attachment: fixed;
+    -webkit-filter: brightness(3);
+    filter: brightness(3);
+    -o-filter: brightness(3);
+    -moz-filter: brightness(3);
+    z-index: -1;
+  }
+  
+  /*Now just a opacity animation*/
+  .flashit{
+  -webkit-animation: flash ease-out 7s infinite;
+  -moz-animation: flash ease-out 7s infinite;
+  animation: flash ease-out 7s infinite;
+  animation-delay: 2s;
+  }
+  
+  @-webkit-keyframes flash {
+      from { opacity: 0; } 
+    92% { opacity: 0; }
+      93% { opacity: 0.6; }
+    94% { opacity: 0.2; }
+    96% { opacity: 0.9; } 
+      to { opacity: 0; }
+  }
+  
+  @keyframes flash {
+      from { opacity: 0; } 
+      92% { opacity: 0; }
+      93% { opacity: 0.6; }
+      94% { opacity: 0.2; }
+      96% { opacity: 1; } 
+      to { opacity: 0; }
+  }
+  /*End! is that simple! */
+  
+  /*Now just some stupid logo to get some look and feel */
+  #logo{
+    z-index:1000;
+    width: 100%;
+    font-size: 6rem;
+    color: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -18rem;
+    margin-top: -2rem;
+    font-weight: 900;
+  }
+  #logo span{ font-weight: 100;}
+
+  html , body{
+    font-family: "teslaregular","Titillium Web", "lato" , sans-serif;
+  }
+  @import url(https://fonts.googleapis.com/css?family=Titillium+Web:200,900|Lato:100,300,900);
+  
+  @media screen and (max-width: 630px){
+    #logo{
+      font-size: 3rem;
+      margin-left: -9rem;
+      margin-top: -1rem;
+    }
+  }
+  
+  html, body{
+    height: 100% !important;
+}
+
+.px-40{
+    padding-left: 10rem;
+    padding-right: 10rem;
+}
+
+.border-4{
+    border-width: 4px;
+}
+
+.border-b-4{
+    border-bottom-width: 4px;
+}
+
+.border-l-4{
+    border-left-width: 4px;
+}
+
+.border-r-4{
+    border-right-width: 4px;
+}
+
+.text-gray-600 {
+    --tw-text-opacity: 1;
+    color: rgba(75, 85, 99, var(--tw-text-opacity));
+}
+
+.text-gray-800 {
+    --tw-text-opacity: 1;
+    color: rgba(31, 41, 55, var(--tw-text-opacity));
+}
+
+.flex-grow-2 {
+    flex-grow: 1;
+}
+
+.w-px-100 {
+    width: 100px;
+}
+
+.w-2-5{
+    width: 40%;
+}
+
+.w-3-5{
+    width: 60%
+}
+
+.w-4-5{
+    width: 80%;
+}
+
+.max-w-3-6{
+    max-width: 50%;
+}
+
+.h-px-20{
+    height: 20px;
+}
+
+.h-px-100{
+    height: 100px;
+}
+
+.m-1{
+    margin: 0.25rem;
+}
+
+.rounded-full{
+    border-radius: 9999px;
+}
+
+.my-2 {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.h-full{
+    height: 100%;
+}
+
+.w-px-400{
+    width: 400px;
+}
+
+.w-px-500{
+    width: 500px;
+}
+
+.justify-evenly{
+    justify-content: space-evenly;
+}
+
+.justify-around{
+    justify-content: space-around;
+}
+
+.h-2-4{
+    height: 50%;
+}
+
+.mx-3{
+    margin: 0.75rem;
+}
+
+.max-h-10{
+    max-height: 2.5rem;
+}
+
+.h-10{
+    height: 2.5rem;
+}
+
+.textGrey{
+    color: #8097a6;
+}
+
+.wrapper{
+    width: 80%;
+}
+
+.progressBars{
+    flex-grow: 1;
+}
+
+.myProgress {
+    width: 100%;
+    border-color: #8097a6;
+    /* background-color: #ddd; */
+  }
+  
+  .myBar {
+    width: 0%;
+    height: 20px;
+    background-color: #e2bf41;
+    text-align: center;
+    line-height: 20px;
+    /* color: white; */
+  }
+
+  .yellow{
+      background-color: #e2bf41;
+  }
+
+  .icons{
+      height: 120px;
+      width: 120px;
+  }
+
+  #relay{
+    background-image: url("groupDImg/relay1.svg");
+  }
+
+  #tictactoe{
+    background-image: url("groupDImg/tic.svg");
+  }
+
+  #shapeDraw{
+    background-image: url("groupDImg/shape1.svg");
+  }
+
+  #maze{
+    background-image: url("groupDImg/maze.svg");
+  }
+
+  .lowerHalf{
+    color: #8097a6;
+  }
+
+  .greyBlue{
+      background-color: #8097a6;
+  }
+
+  .title{
+      color: #8097a6;
+  }
+
+  .nav-button{
+      background-color:#8097a6 ;
+  }
+
+  #first{
+    background-color: #b4cfe1;
+}
+
+#second{
+    background-color: #a7c1d2;
+}
+
+#third{
+    background-color: #9ab3c3;
+}
+
+#fourth{
+    background-color: #8da5b4;
+}
+
+#fifth{
+    background-color: #8097a6;
+}
+
+.gameStats{
+    width: 100%;
+    height: 70px;   
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.gameStatCard{
+    height: 45px;
+    width: 45%;
+    display: flex;
+    align-items: center;
+}
+.statText{
+    font-size: small;
+    font-weight: bold;
+}
+
+.statsImage{
+    height: 40px;
+    width: auto;    
+}
+
+@media (max-width: 1350px) {
+    .wrapper {
+      width: 90%;
+    }
+  }
+
+@media (max-width: 1200px) {
+    .progressBars{
+        width: 50%;
+    }
+
+    .upperHalf, .lowerHalf{
+        justify-content: center;
+    }
+    
+}
+
+/* firework animation */
+
+canvas{
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: -1;
+}
+
+#fireworkButton{
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    cursor: pointer;
+    padding: 9px;
+    border-radius: 40px;
+    width: 60px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -42,14 +42,14 @@ if (isset($_POST['submit'])) {
         if ($link === false) {
             die("ERROR: Could not connect. " . mysqli_connect_error());
         }
-        $sql = "SELECT password, user_id, admin FROM users WHERE username='$username'";
+        $sql = "SELECT password, user_id, admin, team_name FROM users WHERE username='$username'";
         if ($stmt = mysqli_prepare($link, $sql)) {
             if (!(mysqli_stmt_execute($stmt))) {
                 echo "<p>Error executing fetching password</p>";
                 die(mysqli_error($link));
             }  //Fetches the password hash from Database
         }
-        mysqli_stmt_bind_result($stmt, $passwordHash, $user_id, $admin);
+        mysqli_stmt_bind_result($stmt, $passwordHash, $user_id, $admin, $team_name);
         mysqli_stmt_store_result($stmt);
         mysqli_stmt_fetch($stmt);
         //Stores the password hash
@@ -58,6 +58,7 @@ if (isset($_POST['submit'])) {
             $_SESSION["admin"] = $admin;
             $_SESSION["user_id"] = $user_id;
             $_SESSION["loggedin"] = true;
+            $_SESSION["team_name"] = $team_name;
             header('Location: index.php');
         } else {
             echo 'Invalid password.';
