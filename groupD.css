@@ -135,6 +135,7 @@ body{
 }
 
 .progressBars{
+    margin-top: 30px;
     flex-grow: 1;
 }
 
@@ -260,6 +261,11 @@ body{
         justify-content: center;
     }
     
+}
+
+.stream{
+    height: 300px;
+    width:auto;
 }
 
 /* firework animation */

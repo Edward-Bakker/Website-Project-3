@@ -123,29 +123,8 @@
                     <div class="flex flex-grow text-gray-600 px-3 items-center p-1" id="fourth">4.</div>
                     <div class="flex flex-grow text-gray-600 px-3 items-center p-1" id="fifth">5.</div> -->
                 </div>
-                <div class="flex bg-gray-600 w-px-500 m-5">
-                    <?php
-                    require_once('navbar.php');
-                    ?>
-
-
-                    <iframe src="http://foscam.serverict.nl/videostream.cgi" title="Robolympics" width="500"></iframe>
-
-
-                    <?php
-                    // gets all data from camera control table for the request list
-                    if ($conn === false) {
-                        die("ERROR could not connect to database " . mysqli_connect_error());
-                    }
-                    if ($stmt = $conn->prepare("SELECT * FROM camera_control ORDER BY requested_time ASC")) {
-                        $stmt->execute();
-
-                        $results = $stmt->get_result();
-                    } else {
-                        echo "execution unsuccessful";
-                    }
-                    ?>
-                    <!-- <h2 class="bg-gray-600 p-2 text-gray-800">Stream</h2> -->
+                <div class="flex bg-gray-600 m-5">
+                <img src="http://foscam.serverict.nl/snapshot.cgi?&user=gast&pwd=gast&t=" class="livestreamVideo stream" name="refresh" id="refresh" onload="reload(this)" onerror="reload(this)">
                 </div>
             </div>
             <div class="flex flex-wrap lowerHalf justify-between h-2-4">
@@ -314,6 +293,23 @@
 
 
         </script>
+        <script>
+        var refreshElement = document.getElementById('refresh');
+
+        function sleep(ms)
+        {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        async function reload(container){
+            container.src = "http://foscam.serverict.nl/snapshot.cgi?&user=gast&pwd=gast&t=" + Math.random();;
+
+            await sleep(500);
+
+            //this line is to watch the result in console , you can remove it later
+            console.log("Refreshed");
+        }
+    </script>
 
             <div id="here">  
             <?php
