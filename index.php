@@ -61,9 +61,18 @@ if($stmt = $conn->prepare("SELECT * FROM camera_control LIMIT 1"))
             //this line is to watch the result in console , you can remove it later
             console.log("Refreshed");
         }
+        async function reloadElement(container){
+            var temp = container;
+            container.innerHTML = temp.innerHTML;
+ 
+            await sleep(500);
+ 
+            //this line is to watch the result in console , you can remove it later
+            console.log("Refreshed");
+        }
     </script>
 
-<body class="min-h-full bg-gray-800 text-white" onload="reload(this)" onerror="reload(this)">
+<body class="min-h-full bg-gray-800 text-white" onload="reloadElement(this)" onerror="reload(this)">
     <?php
     require_once('navbar.php');
     ?>
