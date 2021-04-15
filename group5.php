@@ -112,7 +112,7 @@
                         <?php
                         if (isset($_SESSION["team_name"]) AND $_SESSION["team_name"] == "E"):
                         ?>
-                        <a href="group5.php?data=relayrace" class="rounded-full text-white px-6 py-2 bg-red-700">Start</a>
+                        <a href="group5.php?data=race" class="rounded-full text-white px-6 py-2 bg-red-700">Start</a>
                         <?php
                         endif;
                         ?>
