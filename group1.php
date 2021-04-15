@@ -97,6 +97,23 @@ $botID = "1";
             }
         }
     </script>
+    <script>
+        var refreshElement = document.getElementById('refresh');
+
+        function sleep(ms)
+        {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        async function reload(container){
+            container.src = "http://foscam.serverict.nl/snapshot.cgi?&user=gast&pwd=gast&t=" + Math.random();;
+
+            await sleep(500);
+
+            //this line is to watch the result in console , you can remove it later
+            console.log("Refreshed");
+        }
+    </script>
 </body>
 
 </html>
