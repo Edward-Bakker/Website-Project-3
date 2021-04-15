@@ -45,14 +45,32 @@ if($stmt = $conn->prepare("SELECT * FROM camera_control LIMIT 1"))
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="css/styles.css" rel="stylesheet" type="text/css">
 </head>
+<script>
+        var refreshElement = document.getElementById('refresh');
 
-<body class="min-h-full bg-gray-800 text-white">
+        function sleep(ms)
+        {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        async function reload(container){
+            container.src = "http://foscam.serverict.nl/snapshot.cgi?&user=gast&pwd=gast&t=" + Math.random();;
+
+            await sleep(500);
+
+            //this line is to watch the result in console , you can remove it later
+            console.log("Refreshed");
+        }
+    </script>
+
+<body class="min-h-full bg-gray-800 text-white" onload="reload(this)" onerror="reload(this)">
     <?php
     require_once('navbar.php');
     ?>
     <div class="flex justify-center p-2 m-5">
         <div class="bg-gray-600 rounded">
-            <iframe src="http://foscam.serverict.nl/videostream.cgi" title="Robolympics" width="640" height="480"></iframe>
+            <!-- <iframe src="http://foscam.serverict.nl/videostream.cgi" title="Robolympics" width="640" height="480"></iframe> -->
+                <img src="http://foscam.serverict.nl/snapshot.cgi?&user=gast&pwd=gast&t=" class="livestreamVideo" name="refresh" id="refresh" onload="reload(this)" onerror="reload(this)">
         </div>
 
         <?php

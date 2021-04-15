@@ -60,6 +60,23 @@
         <link href="individualLayout.css" rel="stylesheet" type="text/css">
         <link href="groupEimg/fonts/stylesheet.css" rel="stylesheet" type="text/css">
     </head>
+    <script>
+        var refreshElement = document.getElementById('refresh');
+
+        function sleep(ms)
+        {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        async function reload(container){
+            container.src = "http://foscam.serverict.nl/snapshot.cgi?&user=gast&pwd=gast&t=" + Math.random();;
+
+            await sleep(500);
+
+            //this line is to watch the result in console , you can remove it later
+            console.log("Refreshed");
+        }
+    </script>
 
     <body class="bg-red-700 text-white">
     <div class="bg"></div>
@@ -84,22 +101,7 @@
                 </div>
                 <div class="flex bg-red-700 w-px-500 m-5">
                     <!-- <iframe src="http://foscam.serverict.nl/videostream.cgi" title="Robolympics"></iframe> -->
-                        <script>
-                            var newImage = new Image();
-                                newImage.src = "http://foscam.serverict.nl/snapshot.cgi?&user=gast&pwd=gast" + new Date().getTime();
-
-                                function updateImage()
-                                {
-                                if(newImage.complete) {
-                                    document.getElementById("theText").src = newImage.src;
-                                    newImage = new Image();
-                                    number++;
-                                    newImage.src = "http://foscam.serverict.nl/snapshot.cgi?&user=gast&pwd=gast" + new Date();
-                                }
-
-                                    setTimeout(updateImage, 100);
-                                }
-                        </script>
+                        <img src="http://foscam.serverict.nl/snapshot.cgi?&user=gast&pwd=gast&t=" class="livestreamVideo" name="refresh" id="refresh" onload="reload(this)" onerror="reload(this)">
                 </div>
             </div>
             <div class="flex flex-wrap lowerHalf justify-between h-2-4">
